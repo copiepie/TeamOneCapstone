@@ -5,19 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89a800de-868f-4c98-a6db-05c9043e2038" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/BookshelfApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/controller/TestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/dto/TestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/mapper/TestMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/repository/TestRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/TestService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/TestServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/TestServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/TestServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +27,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2d3HKrot06HfR5D2HsAJN0LaKMe" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -48,6 +43,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "kotlin-language-version-configured": "true",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>

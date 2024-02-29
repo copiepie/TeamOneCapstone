@@ -9,8 +9,8 @@ import lombok.*;
 import java.time.LocalDate;
 
 @Entity
-@Builder
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
@@ -18,7 +18,7 @@ public class Test {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private final long id;
+    private long id;
 
     private String description;
 

@@ -38,6 +38,6 @@ public class TestServiceImpl implements TestService {
     @Override
     public void deleteTest(long id) {
         LOGGER.debug("deleteTest");
-        testRepository.delete(new Test(id));
+        testRepository.deleteAllById(List.of(id));
     }
 }
