@@ -1,2 +1,1 @@
-To run with a Postgres DB please execute:
-mvn spring-boot:run -Pdocker-compose -Dspring-boot.run.profiles=docker-compose
+H2-gui: http://localhost:8888/h2-gui
