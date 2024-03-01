@@ -1,16 +1,10 @@
 package code.hub.ed.team1.model;
 
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
-@Getter
-@Setter
-@Table(name = "ACTOR")
+@DiscriminatorValue(value = Profession.Val._ACTOR)
 public class Actor extends People {
 
 }

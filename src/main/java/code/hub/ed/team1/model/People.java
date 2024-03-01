@@ -1,24 +1,33 @@
 package code.hub.ed.team1.model;
 
-import jakarta.persistence.Entity;
-import java.math.BigDecimal;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
+import java.math.BigDecimal;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
+@Entity
+@DiscriminatorColumn(
+  discriminatorType = DiscriminatorType.STRING,
+  name = "profession"
+)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class People extends BaseEntity {
 
-  private String name;
+  protected String name;
 
-  private Profession profession;
+  @Enumerated(EnumType.STRING)
+  protected SalaryType salaryType;
 
-  private SalaryType salaryType;
+  protected BigDecimal salary;
 
-  private BigDecimal salary;
+  @ManyToOne
+  @JoinColumn(name = "tvShow_id")
+  protected TvShow tvShow;
 }

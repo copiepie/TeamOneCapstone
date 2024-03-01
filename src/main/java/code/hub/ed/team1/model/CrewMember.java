@@ -4,7 +4,6 @@ import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
 @Entity
-@DiscriminatorValue(value = Profession.Val._PRODUCER)
-public class Producer extends People  {
-
+@DiscriminatorValue(value = Profession.Val._CREW_MEMBER)
+public class CrewMember extends People {
 }
