@@ -5,20 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89a800de-868f-4c98-a6db-05c9043e2038" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/dbdata/h2/data/testdb.mv.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/CrewMember.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Genre.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Actor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/BaseEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Director.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Director.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Movie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/People.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/People.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Producer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Producer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Profession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Profession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/SalaryType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/SalaryType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/TvShow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/TvShow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +21,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>

@@ -20,13 +20,28 @@ public class TvShow extends BaseEntity  {
   @JoinColumn(name = "director_id", nullable = false)
   private Director director;
 
-  @OneToMany(mappedBy = "tvShow")
+  @ManyToMany
+  @JoinTable(
+    name = "actor_tvshow",
+    joinColumns = @JoinColumn(name = "actor_id"),
+    inverseJoinColumns = @JoinColumn(name = "tvshow_id")
+  )
   private List<Actor> actors;
 
-  @OneToMany(mappedBy = "tvShow")
+  @ManyToMany
+  @JoinTable(
+    name = "producer_tvshow",
+    joinColumns = @JoinColumn(name = "producer_id"),
+    inverseJoinColumns = @JoinColumn(name = "tvshow_id")
+  )
   private List<Producer> producers;
 
-  @OneToMany(mappedBy = "tvShow")
+  @ManyToMany
+  @JoinTable(
+    name = "crew_tvshow",
+    joinColumns = @JoinColumn(name = "crew_id"),
+    inverseJoinColumns = @JoinColumn(name = "tvshow_id")
+  )
   private List<CrewMember> crewMembers;
 
   @Column(nullable = false)
@@ -47,5 +62,6 @@ public class TvShow extends BaseEntity  {
   private String title;
 
   @Column(nullable = false)
-  private String genre;
+  @Enumerated(EnumType.STRING)
+  private Genre genre;
 }

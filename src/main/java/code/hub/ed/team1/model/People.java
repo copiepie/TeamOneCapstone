@@ -27,7 +27,4 @@ public class People extends BaseEntity {
 
   protected BigDecimal salary;
 
-  @ManyToOne
-  @JoinColumn(name = "tvShow_id")
-  protected TvShow tvShow;
 }
