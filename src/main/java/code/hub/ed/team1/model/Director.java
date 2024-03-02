@@ -1,10 +1,10 @@
 package code.hub.ed.team1.model;
 
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import lombok.experimental.SuperBuilder;
 
 @Entity
-@Table(name ="DIRECTOR")
-public class Director extends People{
-
-}
+@SuperBuilder
+@DiscriminatorValue(value = Profession.Val._DIRECTOR)
+public class Director extends People {}

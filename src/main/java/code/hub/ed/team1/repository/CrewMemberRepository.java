@@ -1,8 +1,8 @@
 package code.hub.ed.team1.repository;
 
-import code.hub.ed.team1.model.Test;
+import code.hub.ed.team1.model.CrewMember;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface TestRepository extends JpaRepository<Test, Long> {}
+public interface CrewMemberRepository extends JpaRepository<CrewMember, Long> {}

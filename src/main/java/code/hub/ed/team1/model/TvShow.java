@@ -1,52 +1,62 @@
 package code.hub.ed.team1.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.*;
+
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-@Table(name = "TV_SHOW")
-public class TvShow extends BaseEntity  {
-
-  private BigDecimal minBugdet;
-
-  private BigDecimal maxBugdet;
-
-  private Date startingYear;
-  private Date endingYear;
-
-  private int numberOfEpisodes;
-
-  private String title;
-
+@Builder
+public class TvShow extends BaseEntity {
   @ManyToOne
-  @JoinColumn(name = "DIRECTOR")
+  @JoinColumn(name = "director_id", nullable = false)
   private Director director;
 
+  @ManyToMany
+  @JoinTable(
+      name = "actor_tvshow",
+      joinColumns = @JoinColumn(name = "actor_id"),
+      inverseJoinColumns = @JoinColumn(name = "tvshow_id"))
   private List<Actor> actors;
 
+  @ManyToMany
+  @JoinTable(
+      name = "producer_tvshow",
+      joinColumns = @JoinColumn(name = "producer_id"),
+      inverseJoinColumns = @JoinColumn(name = "tvshow_id"))
   private List<Producer> producers;
 
-  private String genre;
+  @ManyToMany
+  @JoinTable(
+      name = "crew_tvshow",
+      joinColumns = @JoinColumn(name = "crew_id"),
+      inverseJoinColumns = @JoinColumn(name = "tvshow_id"))
+  private List<CrewMember> crewMembers;
 
-  public Director getDirector() {
-    return director;
-  }
+  @Column(nullable = false)
+  private BigDecimal minBugdet;
 
-  public void setDirector(Director director) {
-    this.director = director;
-  }
+  @Column(nullable = false)
+  private BigDecimal maxBugdet;
 
+  @Column(nullable = false)
+  private LocalDate startingYear;
+
+  private LocalDate endingYear;
+
+  @Column(nullable = false)
+  private Integer numberOfEpisodes;
+
+  @Column(nullable = false)
+  private String title;
+
+  @Column(nullable = false)
+  @Enumerated(EnumType.STRING)
+  private Genre genre;
 }

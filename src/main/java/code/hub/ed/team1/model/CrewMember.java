@@ -6,5 +6,5 @@ import lombok.experimental.SuperBuilder;
 
 @Entity
 @SuperBuilder
-@DiscriminatorValue(value = Profession.Val._PRODUCER)
-public class Producer extends People {}
+@DiscriminatorValue(value = Profession.Val._CREW_MEMBER)
+public class CrewMember extends People {}
