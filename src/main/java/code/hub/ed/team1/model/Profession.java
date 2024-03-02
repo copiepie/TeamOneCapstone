@@ -6,7 +6,6 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum Profession {
-
   ACTOR(Val._ACTOR),
   DIRECTOR(Val._DIRECTOR),
   PRODUCER(Val._PRODUCER),

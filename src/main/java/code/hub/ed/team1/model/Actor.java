@@ -2,9 +2,9 @@ package code.hub.ed.team1.model;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import lombok.experimental.SuperBuilder;
 
 @Entity
+@SuperBuilder
 @DiscriminatorValue(value = Profession.Val._ACTOR)
-public class Actor extends People {
-
-}
+public class Actor extends People {}

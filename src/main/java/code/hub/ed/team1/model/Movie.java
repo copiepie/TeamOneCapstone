@@ -1,10 +1,7 @@
 package code.hub.ed.team1.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -15,7 +12,8 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Movie  extends BaseEntity {
+@Builder
+public class Movie extends BaseEntity {
   private String title;
 
   @ManyToOne
@@ -24,26 +22,23 @@ public class Movie  extends BaseEntity {
 
   @ManyToMany
   @JoinTable(
-    name = "actor_movie",
-    joinColumns = @JoinColumn(name = "actor_id"),
-    inverseJoinColumns = @JoinColumn(name = "movie_id")
-  )
+      name = "actor_movie",
+      joinColumns = @JoinColumn(name = "actor_id"),
+      inverseJoinColumns = @JoinColumn(name = "movie_id"))
   private Set<Actor> actors;
 
   @ManyToMany
   @JoinTable(
-    name = "producer_movie",
-    joinColumns = @JoinColumn(name = "producer_id"),
-    inverseJoinColumns = @JoinColumn(name = "movie_id")
-  )
+      name = "producer_movie",
+      joinColumns = @JoinColumn(name = "producer_id"),
+      inverseJoinColumns = @JoinColumn(name = "movie_id"))
   private Set<Producer> producers;
 
   @ManyToMany
   @JoinTable(
-    name = "crew_movie",
-    joinColumns = @JoinColumn(name = "crew_id"),
-    inverseJoinColumns = @JoinColumn(name = "movie_id")
-  )
+      name = "crew_movie",
+      joinColumns = @JoinColumn(name = "crew_id"),
+      inverseJoinColumns = @JoinColumn(name = "movie_id"))
   private Set<CrewMember> crewMembers;
 
   @Enumerated

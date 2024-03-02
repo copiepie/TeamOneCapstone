@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
 
@@ -13,10 +14,8 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @Entity
-@DiscriminatorColumn(
-  discriminatorType = DiscriminatorType.STRING,
-  name = "profession"
-)
+@SuperBuilder
+@DiscriminatorColumn(discriminatorType = DiscriminatorType.STRING, name = "profession")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class People extends BaseEntity {
 
@@ -26,5 +25,4 @@ public class People extends BaseEntity {
   protected SalaryType salaryType;
 
   protected BigDecimal salary;
-
 }

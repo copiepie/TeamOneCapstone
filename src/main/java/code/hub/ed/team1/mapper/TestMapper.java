@@ -9,9 +9,9 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface TestMapper {
 
-    TestDto testToTestDto(Test test);
+  TestDto testToTestDto(Test test);
 
-    Test testDtoToTest(TestDto testDto);
+  Test testDtoToTest(TestDto testDto);
 
-    List<TestDto> testToTestDtoList(List<Test> tests);
+  List<TestDto> testToTestDtoList(List<Test> tests);
 }
