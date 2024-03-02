@@ -2,7 +2,6 @@ package code.hub.ed.team1.repository;
 
 import code.hub.ed.team1.model.Actor;
 import code.hub.ed.team1.model.SalaryType;
-import code.hub.ed.team1.repository.ActorRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

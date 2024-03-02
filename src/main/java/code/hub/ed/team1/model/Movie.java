@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
@@ -45,7 +44,9 @@ public class Movie extends BaseEntity {
   @Column(nullable = false)
   private Genre genre;
 
+  @Column(nullable = false)
   private BigDecimal productionBudget;
 
-  private LocalDate yearOfRelease;
+  @Column(nullable = false)
+  private Integer yearOfRelease;
 }
