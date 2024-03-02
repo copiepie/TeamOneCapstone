@@ -5,31 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89a800de-868f-4c98-a6db-05c9043e2038" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/code/hub/ed/team1/ActorRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/dto/PeopleDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/mapper/PeopleMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/repository/PeopleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/api/GeneralService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/api/PeopleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/impl/PeopleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/code/hub/ed/team1/dto/PeopleMapperTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/BookshelfApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/BookshelfApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/controller/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/dto/TestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/dto/TestDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/mapper/TestMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/mapper/TestMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Actor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/BaseEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/CrewMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/CrewMember.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Director.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Director.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Genre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Genre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Movie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/People.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/People.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Producer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Producer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Profession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Profession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/SalaryType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/SalaryType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/TvShow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/TvShow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/repository/ActorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/repository/ActorRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/repository/CrewMemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/repository/CrewMemberRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/repository/DirectoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/repository/DirectoryRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/repository/ProducerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/repository/ProducerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/repository/TestRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/repository/TestRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/api/TestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/TestServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/impl/TestServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/code/hub/ed/team1/ActorRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/code/hub/ed/team1/repository/ActorRepositoryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +24,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -65,6 +49,9 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "JUnit.ActorRepositoryTest.test_createActor_anActorGetsCreated.executor": "Run",
+    "JUnit.ActorRepositoryTest.test_deletePeopleById_peopleRecordIsDeleted.executor": "Run",
+    "JUnit.PeopleMapperTest.executor": "Run",
+    "JUnit.PeopleMapperTest.test_mapPeopleDtoToActor_yieldsAnActor.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -81,7 +68,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ActorRepositoryTest.test_readActor_actorsAreRetrieved">
+  <component name="RunManager" selected="JUnit.ActorRepositoryTest.test_deletePeopleById_peopleRecordIsDeleted">
     <configuration name="ActorRepositoryTest.test_createActor_anActorGetsCreated" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="team-one-ed-capstone" />
       <extension name="coverage">
@@ -93,6 +80,22 @@
       <option name="PACKAGE_NAME" value="code.hub.ed.team1" />
       <option name="MAIN_CLASS_NAME" value="code.hub.ed.team1.ActorRepositoryTest" />
       <option name="METHOD_NAME" value="test_createActor_anActorGetsCreated" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ActorRepositoryTest.test_deletePeopleById_peopleRecordIsDeleted" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="team-one-ed-capstone" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="code.hub.ed.team1.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="code.hub.ed.team1.repository" />
+      <option name="MAIN_CLASS_NAME" value="code.hub.ed.team1.repository.ActorRepositoryTest" />
+      <option name="METHOD_NAME" value="test_deletePeopleById_peopleRecordIsDeleted" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -114,8 +117,42 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PeopleMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="team-one-ed-capstone" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="code.hub.ed.team1.dto.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="code.hub.ed.team1.dto" />
+      <option name="MAIN_CLASS_NAME" value="code.hub.ed.team1.dto.PeopleMapperTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PeopleMapperTest.test_mapPeopleDtoToActor_yieldsAnActor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="team-one-ed-capstone" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="code.hub.ed.team1.dto.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="code.hub.ed.team1.dto" />
+      <option name="MAIN_CLASS_NAME" value="code.hub.ed.team1.dto.PeopleMapperTest" />
+      <option name="METHOD_NAME" value="test_mapPeopleDtoToActor_yieldsAnActor" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ActorRepositoryTest.test_deletePeopleById_peopleRecordIsDeleted" />
+        <item itemvalue="JUnit.PeopleMapperTest.test_mapPeopleDtoToActor_yieldsAnActor" />
+        <item itemvalue="JUnit.PeopleMapperTest" />
         <item itemvalue="JUnit.ActorRepositoryTest.test_readActor_actorsAreRetrieved" />
         <item itemvalue="JUnit.ActorRepositoryTest.test_createActor_anActorGetsCreated" />
       </list>

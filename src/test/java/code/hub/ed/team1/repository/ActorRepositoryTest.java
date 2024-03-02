@@ -1,4 +1,4 @@
-package code.hub.ed.team1;
+package code.hub.ed.team1.repository;
 
 import code.hub.ed.team1.model.Actor;
 import code.hub.ed.team1.model.SalaryType;
@@ -15,6 +15,7 @@ import java.util.List;
 public class ActorRepositoryTest {
 
   @Autowired private ActorRepository actorRepository;
+  @Autowired private PeopleRepository peopleRepository;
 
   @Test
   public void test_createActor_anActorGetsCreated() {
@@ -48,6 +49,23 @@ public class ActorRepositoryTest {
     Assertions.assertEquals("William Shattner", actors.get(0).getName());
     Assertions.assertEquals(BigDecimal.valueOf(5_000), actors.get(0).getSalary());
     Assertions.assertEquals(SalaryType.SINGLE_EPISODE, actors.get(0).getSalaryType());
+  }
 
+  @Test
+  public void test_deletePeopleById_peopleRecordIsDeleted() {
+    Actor actor =
+            Actor.builder()
+                    .salary(BigDecimal.valueOf(5_000))
+                    .salaryType(SalaryType.SINGLE_EPISODE)
+                    .name("William Shattner")
+                    .build();
+
+    actorRepository.save(actor);
+    List<Actor> actors = actorRepository.findAll();
+    Assertions.assertFalse(actors.isEmpty());
+
+    peopleRepository.deleteById(actor.getId());
+    actors = actorRepository.findAll();
+    Assertions.assertTrue(actors.isEmpty());
   }
 }
