@@ -22,22 +22,22 @@ public class Movie extends BaseEntity {
   @ManyToMany
   @JoinTable(
       name = "actor_movie",
-      joinColumns = @JoinColumn(name = "actor_id"),
-      inverseJoinColumns = @JoinColumn(name = "movie_id"))
+      joinColumns = @JoinColumn(name = "movie_id"),
+      inverseJoinColumns = @JoinColumn(name = "actor_id"))
   private Set<Actor> actors;
 
   @ManyToMany
   @JoinTable(
       name = "producer_movie",
-      joinColumns = @JoinColumn(name = "producer_id"),
-      inverseJoinColumns = @JoinColumn(name = "movie_id"))
+      joinColumns = @JoinColumn(name = "movie_id"),
+      inverseJoinColumns = @JoinColumn(name = "producer_id"))
   private Set<Producer> producers;
 
   @ManyToMany
   @JoinTable(
       name = "crew_movie",
-      joinColumns = @JoinColumn(name = "crew_id"),
-      inverseJoinColumns = @JoinColumn(name = "movie_id"))
+      joinColumns = @JoinColumn(name = "movie_id"),
+      inverseJoinColumns = @JoinColumn(name = "crew_id"))
   private Set<CrewMember> crewMembers;
 
   @Enumerated

@@ -8,6 +8,7 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,10 +20,13 @@ import java.math.BigDecimal;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class People extends BaseEntity {
 
-  protected String name;
+  @Column(nullable = false)
+  private String name;
 
   @Enumerated(EnumType.STRING)
-  protected SalaryType salaryType;
+  @Column(nullable = false)
+  private SalaryType salaryType;
 
-  protected BigDecimal salary;
+  @Column(nullable = false)
+  private BigDecimal salary;
 }
