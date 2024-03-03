@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89a800de-868f-4c98-a6db-05c9043e2038" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/exception/MovieNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/api/Calculatable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/code/hub/ed/team1/service/MovieServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/exception/TvShowNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/api/TvShowService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/impl/TvShowServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/code/hub/ed/team1/service/TvShowServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/mapper/MovieMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/mapper/MovieMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/impl/MovieServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/impl/MovieServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/api/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/api/MovieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/code/hub/ed/team1/service/MovieServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/code/hub/ed/team1/service/MovieServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +55,8 @@
     "JUnit.PeopleMapperTest.executor": "Run",
     "JUnit.PeopleMapperTest.test_mapPeopleDtoToActor_yieldsAnActor.executor": "Run",
     "JUnit.PeopleRepositoryTest.test_getPeopleRecordForActor_allMoviesAndShowsAreIncluded.executor": "Debug",
+    "JUnit.TvShowServiceTest.test_calculateCost_tvShowFound_salariesPerEpisode_allSalariesCalculatedAsExpected.executor": "Debug",
+    "JUnit.TvShowServiceTest.test_calculateCost_tvShowNotMovie_exceptionIsThrown.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -73,23 +76,7 @@
       <recent name="code.hub.ed.team1" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MovieServiceTest.test_calculateCost_movieFound_salariesPerProject_allSalariesAreCalculatedAsExpected">
-    <configuration name="MovieRepositoryTest.test_createMovie_movieIsCreatedAndReturnedWhenQueried" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="team-one-ed-capstone" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="code.hub.ed.team1.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="code.hub.ed.team1.repository" />
-      <option name="MAIN_CLASS_NAME" value="code.hub.ed.team1.repository.MovieRepositoryTest" />
-      <option name="METHOD_NAME" value="test_createMovie_movieIsCreatedAndReturnedWhenQueried" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.TvShowServiceTest.test_calculateCost_tvShowFound_salariesPerEpisode_allSalariesCalculatedAsExpected">
     <configuration name="MovieServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="team-one-ed-capstone" />
       <extension name="coverage">
@@ -137,17 +124,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PeopleRepositoryTest.test_getPeopleRecordForActor_allMoviesAndShowsAreIncluded" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TvShowServiceTest.test_calculateCost_tvShowFound_salariesPerEpisode_allSalariesCalculatedAsExpected" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="team-one-ed-capstone" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="code.hub.ed.team1.repository.*" />
+          <option name="PATTERN" value="code.hub.ed.team1.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="code.hub.ed.team1.repository" />
-      <option name="MAIN_CLASS_NAME" value="code.hub.ed.team1.repository.PeopleRepositoryTest" />
-      <option name="METHOD_NAME" value="test_getPeopleRecordForActor_allMoviesAndShowsAreIncluded" />
+      <option name="PACKAGE_NAME" value="code.hub.ed.team1.service" />
+      <option name="MAIN_CLASS_NAME" value="code.hub.ed.team1.service.TvShowServiceTest" />
+      <option name="METHOD_NAME" value="test_calculateCost_tvShowFound_salariesPerEpisode_allSalariesCalculatedAsExpected" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TvShowServiceTest.test_calculateCost_tvShowNotMovie_exceptionIsThrown" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="team-one-ed-capstone" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="code.hub.ed.team1.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="code.hub.ed.team1.service" />
+      <option name="MAIN_CLASS_NAME" value="code.hub.ed.team1.service.TvShowServiceTest" />
+      <option name="METHOD_NAME" value="test_calculateCost_tvShowNotMovie_exceptionIsThrown" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -155,11 +158,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TvShowServiceTest.test_calculateCost_tvShowFound_salariesPerEpisode_allSalariesCalculatedAsExpected" />
+        <item itemvalue="JUnit.TvShowServiceTest.test_calculateCost_tvShowNotMovie_exceptionIsThrown" />
         <item itemvalue="JUnit.MovieServiceTest.test_calculateCost_movieFound_salariesPerProject_allSalariesAreCalculatedAsExpected" />
         <item itemvalue="JUnit.MovieServiceTest.test_calculateCost_movieNotFound_exceptionIsThrown" />
         <item itemvalue="JUnit.MovieServiceTest" />
-        <item itemvalue="JUnit.PeopleRepositoryTest.test_getPeopleRecordForActor_allMoviesAndShowsAreIncluded" />
-        <item itemvalue="JUnit.MovieRepositoryTest.test_createMovie_movieIsCreatedAndReturnedWhenQueried" />
       </list>
     </recent_temporary>
   </component>
@@ -200,6 +203,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/TvShow.java</url>
           <line>20</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/code/hub/ed/team1/service/TvShowServiceTest.java</url>
+          <line>92</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

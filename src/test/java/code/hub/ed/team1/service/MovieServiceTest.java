@@ -93,8 +93,8 @@ public class MovieServiceTest {
 
     MovieServiceImpl movieService = new MovieServiceImpl(movieRepository, movieMapper);
     BigDecimal totalCost = movieService.calculateCost(1);
-    Assertions.assertThat(BigDecimal.valueOf(10_138_569.60))
+    Assertions.assertThat(totalCost)
         .usingComparator(BigDecimal::compareTo)
-        .isEqualTo(totalCost);
+        .isEqualTo(BigDecimal.valueOf(10_138_569.60));
   }
 }
