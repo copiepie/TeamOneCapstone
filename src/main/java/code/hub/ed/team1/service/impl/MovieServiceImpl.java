@@ -3,17 +3,20 @@ package code.hub.ed.team1.service.impl;
 import code.hub.ed.team1.dto.MovieDto;
 import code.hub.ed.team1.exception.MovieNotFoundException;
 import code.hub.ed.team1.mapper.MovieMapper;
-import code.hub.ed.team1.model.Movie;
-import code.hub.ed.team1.model.People;
-import code.hub.ed.team1.model.SalaryType;
+import code.hub.ed.team1.model.*;
 import code.hub.ed.team1.repository.MovieRepository;
+import code.hub.ed.team1.repository.PeopleRepository;
 import code.hub.ed.team1.service.api.Calculatable;
 import code.hub.ed.team1.service.api.MovieService;
 import lombok.AllArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 import java.util.function.BinaryOperator;
 import java.util.stream.Stream;
 
@@ -21,22 +24,52 @@ import java.util.stream.Stream;
 @AllArgsConstructor
 public class MovieServiceImpl implements MovieService, Calculatable {
 
+  private static final Logger LOGGER = LoggerFactory.getLogger(MovieServiceImpl.class.getName());
+
+  private static final String NO_MOVIE_FOUND_MSG = "No Movie with id '%d' could be found";
+
   private final MovieRepository movieRepository;
+
+  private final PeopleRepository peopleRepository;
 
   private final MovieMapper movieMapper;
 
   @Override
   public MovieDto create(MovieDto movieDto) {
-    // TODO inverse side of relationship must be updated, Actor, CrewMember, Director, Producers
     Movie movie = movieMapper.movieDtoToMovie(movieDto);
-    movie = movieRepository.save(movie);
+    Movie persistedMovie = movieRepository.save(movie);
+    savePeopleRelationship(persistedMovie);
     return movieMapper.movieToMovieDto(movie);
+  }
+
+  public void savePeopleRelationship(final Movie movie) {
+    Director director = movie.getDirector();
+    director.addMovies(movie);
+
+    Set<Actor> actors = movie.getActors();
+    actors.stream().forEach(actor -> actor.addMovies(movie));
+
+    Set<CrewMember> crewMembers = movie.getCrewMembers();
+    crewMembers.stream().forEach(crewMember -> crewMember.addMovies(movie));
+
+    Set<Producer> producers = movie.getProducers();
+    producers.stream().forEach(producer -> producer.addMovies(movie));
+
+    Set<People> allAfiliatedPeople = new HashSet<>();
+    allAfiliatedPeople.add(director);
+    allAfiliatedPeople.addAll(actors);
+    allAfiliatedPeople.addAll(crewMembers);
+    allAfiliatedPeople.addAll(producers);
+
+    peopleRepository.saveAll(allAfiliatedPeople);
   }
 
   @Override
   public MovieDto read(Long id) {
     Optional<Movie> optionalMovie = movieRepository.findById(id);
-    Movie movie = optionalMovie.orElseThrow(IllegalArgumentException::new);
+    Movie movie =
+        optionalMovie.orElseThrow(
+            () -> new MovieNotFoundException(String.format(NO_MOVIE_FOUND_MSG, id)));
     return movieMapper.movieToMovieDto(movie);
   }
 
@@ -46,10 +79,12 @@ public class MovieServiceImpl implements MovieService, Calculatable {
     if (optionalMovie.isPresent()) {
       Movie movie = movieMapper.movieDtoToMovie(movieDto);
       movie = movieRepository.save(movie);
+      savePeopleRelationship(movie);
       return movieMapper.movieToMovieDto(movie);
     } else {
-      // TODO Change to somehting like MovieNotFoundException
-      throw new IllegalArgumentException("Movie not found");
+      String msg = String.format(NO_MOVIE_FOUND_MSG, movieDto.getId());
+      LOGGER.error(msg);
+      throw new MovieNotFoundException(msg);
     }
   }
 
@@ -63,9 +98,7 @@ public class MovieServiceImpl implements MovieService, Calculatable {
     Optional<Movie> optionalMovie = movieRepository.findById(id);
     Movie movie =
         optionalMovie.orElseThrow(
-            () ->
-                new MovieNotFoundException(
-                    String.format("No Movie with id '%d' could be found", id)));
+            () -> new MovieNotFoundException(String.format(NO_MOVIE_FOUND_MSG, id)));
     BigDecimal directorSalary = calculateSalaryBasedOnType(movie.getDirector());
     BinaryOperator<BigDecimal> accumulator = (sub, sal) -> sub.add(sal);
     BigDecimal actorsTotalSalary =
@@ -91,5 +124,10 @@ public class MovieServiceImpl implements MovieService, Calculatable {
       return person.getSalary().multiply(BigDecimal.valueOf(20));
     }
     return person.getSalary();
+  }
+
+  @Override
+  public boolean hasMovies() {
+    return movieRepository.hasMovies();
   }
 }
