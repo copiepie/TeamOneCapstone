@@ -6,12 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="89a800de-868f-4c98-a6db-05c9043e2038" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/controller/RestResponseEntityExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/exception/PersonNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/exception/ProfessionDoesNotExistException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dbdata/h2/data/testdb.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/dbdata/h2/data/testdb.mv.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/bootstrap/SampleContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/bootstrap/SampleContent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/repository/MovieRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/repository/MovieRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/api/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/api/MovieService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/impl/MovieServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/impl/MovieServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/impl/PeopleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/impl/PeopleServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/code/hub/ed/team1/service/MovieServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/code/hub/ed/team1/service/MovieServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
