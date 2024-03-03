@@ -5,17 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89a800de-868f-4c98-a6db-05c9043e2038" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/BestActorNomination.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/code/hub/ed/team1/repository/PeopleRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/bootstrap/SampleContent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/controller/MovieController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/dto/BaseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/dto/TvShowDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/dto/ActorDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/dto/ActorDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/dto/CrewMemberDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/dto/CrewMemberDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/dto/DirectorDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/dto/DirectorDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/dto/MovieDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/dto/MovieDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/dto/PeopleDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/dto/PeopleDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/dto/ProducerDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/dto/ProducerDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Actor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/CrewMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/CrewMember.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Director.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Director.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Movie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/People.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/People.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Producer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/Producer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/TvShow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/TvShow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/impl/MovieServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/impl/MovieServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/impl/PeopleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/impl/PeopleServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +61,7 @@
     "JUnit.ActorRepositoryTest.test_createActor_anActorGetsCreated.executor": "Run",
     "JUnit.ActorRepositoryTest.test_deletePeopleById_peopleRecordIsDeleted.executor": "Run",
     "JUnit.MovieRepositoryTest.test_createMovie_movieIsCreatedAndReturnedWhenQueried.executor": "Run",
+    "JUnit.MovieServiceTest.executor": "Run",
     "JUnit.PeopleMapperTest.executor": "Run",
     "JUnit.PeopleMapperTest.test_mapPeopleDtoToActor_yieldsAnActor.executor": "Run",
     "JUnit.PeopleRepositoryTest.test_getPeopleRecordForActor_allMoviesAndShowsAreIncluded.executor": "Debug",
@@ -71,8 +80,11 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="code.hub.ed.team1" />
+    </key>
   </component>
-  <component name="RunManager" selected="JUnit.PeopleRepositoryTest.test_getPeopleRecordForActor_allMoviesAndShowsAreIncluded">
+  <component name="RunManager" selected="JUnit.MovieServiceTest">
     <configuration name="ActorRepositoryTest.test_deletePeopleById_peopleRecordIsDeleted" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="team-one-ed-capstone" />
       <extension name="coverage">
@@ -105,16 +117,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PeopleMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MovieServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="team-one-ed-capstone" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="code.hub.ed.team1.dto.*" />
+          <option name="PATTERN" value="code.hub.ed.team1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="code.hub.ed.team1.dto" />
-      <option name="MAIN_CLASS_NAME" value="code.hub.ed.team1.dto.PeopleMapperTest" />
+      <option name="PACKAGE_NAME" value="code.hub.ed.team1" />
+      <option name="MAIN_CLASS_NAME" value="code.hub.ed.team1.MovieServiceTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -154,11 +166,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MovieServiceTest" />
         <item itemvalue="JUnit.PeopleRepositoryTest.test_getPeopleRecordForActor_allMoviesAndShowsAreIncluded" />
         <item itemvalue="JUnit.MovieRepositoryTest.test_createMovie_movieIsCreatedAndReturnedWhenQueried" />
         <item itemvalue="JUnit.ActorRepositoryTest.test_deletePeopleById_peopleRecordIsDeleted" />
         <item itemvalue="JUnit.PeopleMapperTest.test_mapPeopleDtoToActor_yieldsAnActor" />
-        <item itemvalue="JUnit.PeopleMapperTest" />
       </list>
     </recent_temporary>
   </component>
@@ -180,5 +192,27 @@
       <updated>1709229784160</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/TvShow.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

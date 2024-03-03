@@ -3,7 +3,9 @@ package code.hub.ed.team1.model;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
@@ -14,6 +16,8 @@ import java.util.Set;
 @SuperBuilder
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @DiscriminatorValue(value = Profession.Val._DIRECTOR)
 public class Director extends People {
 

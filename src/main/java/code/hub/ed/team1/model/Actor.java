@@ -4,7 +4,9 @@ import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToMany;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
@@ -15,6 +17,8 @@ import java.util.Set;
 @SuperBuilder
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @DiscriminatorValue(value = Profession.Val._ACTOR)
 public class Actor extends People {
 

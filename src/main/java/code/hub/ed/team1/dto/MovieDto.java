@@ -1,27 +1,29 @@
 package code.hub.ed.team1.dto;
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.util.Set;
 
-import code.hub.ed.team1.model.BaseEntity;
+import code.hub.ed.team1.model.Genre;
 import lombok.Data;
 
+import java.math.BigDecimal;
+import java.util.Set;
+
 @Data
-public class MovieDto extends BaseEntity {
+public class MovieDto extends BaseDto {
 
-    private String title;
+  private String title;
 
-    private DirectorDto director;
+  private DirectorDto director;
 
-    private Set<ActorDto> actors;
+  private Set<ActorDto> actors;
 
-    private Set<ProducerDto> producers;
+  private Set<ProducerDto> producers;
 
-    private Set<CrewMemberDto> crewMembers;
+  private Set<CrewMemberDto> crewMembers;
 
-    private String genre;
+  private Set<PeopleDto> people;
 
-    private BigDecimal productionBudget;
+  private Genre genre;
 
-    private LocalDate yearOfRelease;
+  private BigDecimal productionBudget;
+
+  private Integer yearOfRelease;
 }

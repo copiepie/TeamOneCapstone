@@ -63,6 +63,7 @@ public class PeopleServiceImpl implements PeopleService {
 
   @Override
   public PeopleDto update(PeopleDto peopleDto) {
+    // TODO Change by checking first if the record to update really exists
     return peopleMapper.peopleToPeopleDto(save(peopleDto));
   }
 

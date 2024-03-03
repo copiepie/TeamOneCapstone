@@ -15,25 +15,25 @@ import java.util.Set;
 public class Movie extends BaseEntity {
   private String title;
 
-  @ManyToOne
+  @ManyToOne(cascade = CascadeType.PERSIST)
   @JoinColumn(name = "director_id", nullable = false)
   private Director director;
 
-  @ManyToMany
+  @ManyToMany(cascade = CascadeType.PERSIST)
   @JoinTable(
       name = "actor_movie",
       joinColumns = @JoinColumn(name = "movie_id"),
       inverseJoinColumns = @JoinColumn(name = "actor_id"))
   private Set<Actor> actors;
 
-  @ManyToMany
+  @ManyToMany(cascade = CascadeType.PERSIST)
   @JoinTable(
       name = "producer_movie",
       joinColumns = @JoinColumn(name = "movie_id"),
       inverseJoinColumns = @JoinColumn(name = "producer_id"))
   private Set<Producer> producers;
 
-  @ManyToMany
+  @ManyToMany(cascade = CascadeType.PERSIST)
   @JoinTable(
       name = "crew_movie",
       joinColumns = @JoinColumn(name = "movie_id"),
