@@ -7,9 +7,9 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 @Data
-public class PeopleDto {
-    private String name;
-    private SalaryType salaryType;
-    private BigDecimal salary;
-    private Profession profession;
+public class PeopleDto extends BaseDto {
+    protected String name;
+    protected SalaryType salaryType;
+    protected BigDecimal salary;
+    protected Profession profession;
 }

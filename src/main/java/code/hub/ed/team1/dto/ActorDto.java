@@ -1,4 +1,4 @@
 package code.hub.ed.team1.dto;
 
-public class ActorDto {
+public class ActorDto extends PeopleDto {
 }

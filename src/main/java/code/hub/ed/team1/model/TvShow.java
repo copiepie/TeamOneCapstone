@@ -4,8 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @NoArgsConstructor
@@ -23,21 +22,21 @@ public class TvShow extends BaseEntity {
       name = "actor_tvshow",
       joinColumns = @JoinColumn(name = "actor_id"),
       inverseJoinColumns = @JoinColumn(name = "tvshow_id"))
-  private List<Actor> actors;
+  private Set<Actor> actors;
 
   @ManyToMany
   @JoinTable(
       name = "producer_tvshow",
       joinColumns = @JoinColumn(name = "producer_id"),
       inverseJoinColumns = @JoinColumn(name = "tvshow_id"))
-  private List<Producer> producers;
+  private Set<Producer> producers;
 
   @ManyToMany
   @JoinTable(
       name = "crew_tvshow",
       joinColumns = @JoinColumn(name = "crew_id"),
       inverseJoinColumns = @JoinColumn(name = "tvshow_id"))
-  private List<CrewMember> crewMembers;
+  private Set<CrewMember> crewMembers;
 
   @Column(nullable = false)
   private BigDecimal minBugdet;
@@ -46,9 +45,9 @@ public class TvShow extends BaseEntity {
   private BigDecimal maxBugdet;
 
   @Column(nullable = false)
-  private LocalDate startingYear;
+  private Integer startingYear;
 
-  private LocalDate endingYear;
+  private Integer endingYear;
 
   @Column(nullable = false)
   private Integer numberOfEpisodes;
