@@ -4,6 +4,7 @@ import code.hub.ed.team1.exception.MovieNotFoundException;
 import code.hub.ed.team1.exception.PersonNotFoundException;
 import code.hub.ed.team1.exception.ProfessionDoesNotExistException;
 import code.hub.ed.team1.exception.TvShowNotFoundException;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,8 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
       value = {
         MovieNotFoundException.class,
         TvShowNotFoundException.class,
-        PersonNotFoundException.class
+        PersonNotFoundException.class,
+        EntityNotFoundException.class
       })
   public ResponseEntity<Object> handleNotFound(RuntimeException exception, WebRequest webRequest) {
     return handleExceptionInternal(
