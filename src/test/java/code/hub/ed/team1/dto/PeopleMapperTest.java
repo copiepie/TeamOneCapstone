@@ -2,7 +2,6 @@ package code.hub.ed.team1.dto;
 
 import code.hub.ed.team1.mapper.PeopleMapper;
 import code.hub.ed.team1.model.Actor;
-import code.hub.ed.team1.model.People;
 import code.hub.ed.team1.model.Profession;
 import code.hub.ed.team1.model.SalaryType;
 import org.junit.jupiter.api.Assertions;
@@ -20,8 +19,8 @@ public class PeopleMapperTest {
     peopleDto.setSalary(BigDecimal.ONE);
     peopleDto.setSalaryType(SalaryType.FULL_PROJECT);
 
-//    People people = PeopleMapper.INSTANCE.peopleDtoToEntity(peopleDto);
-//    Assertions.assertTrue(people instanceof Actor);
-//    Assertions.assertEquals("Thanassis Beggos", people.getName());
+    Actor people = PeopleMapper.INSTANCE.peopleDtoToActor(peopleDto);
+    Assertions.assertTrue(people instanceof Actor);
+    Assertions.assertEquals("Thanassis Beggos", people.getName());
   }
 }

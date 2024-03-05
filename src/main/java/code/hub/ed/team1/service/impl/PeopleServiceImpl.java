@@ -1,6 +1,8 @@
 package code.hub.ed.team1.service.impl;
 
 import code.hub.ed.team1.dto.PeopleDto;
+import code.hub.ed.team1.exception.PersonNotFoundException;
+import code.hub.ed.team1.exception.ProfessionDoesNotExistException;
 import code.hub.ed.team1.mapper.PeopleMapper;
 import code.hub.ed.team1.model.*;
 import code.hub.ed.team1.repository.*;
@@ -13,6 +15,8 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class PeopleServiceImpl implements PeopleService {
+  private static final String PERSON_NOT_FOUND_MSG = "The Person with the ID %s doesn't exist";
+  private static final String PROFESSION_DOES_NOT_EXIST_MSG = "The profession %s doesn't exist.";
 
   private final ActorRepository actorRepository;
 
@@ -44,8 +48,8 @@ public class PeopleServiceImpl implements PeopleService {
         Producer producer = peopleMapper.peopleDtoToProducer(peopleDto);
         return producerRepository.save(producer);
       }
-      default -> throw new IllegalArgumentException(
-          String.format("The profession %s doesn't exist.", peopleDto.getProfession()));
+      default -> throw new ProfessionDoesNotExistException(
+          String.format(PROFESSION_DOES_NOT_EXIST_MSG, peopleDto.getProfession()));
     }
   }
 
@@ -63,7 +67,9 @@ public class PeopleServiceImpl implements PeopleService {
 
   @Override
   public PeopleDto update(PeopleDto peopleDto) {
-    // TODO Change by checking first if the record to update really exists
+    Optional<People> optionalPeople = peopleRepository.findById(peopleDto.getId());
+    optionalPeople.orElseThrow(
+        () -> new PersonNotFoundException(String.format(PERSON_NOT_FOUND_MSG, peopleDto.getId())));
     return peopleMapper.peopleToPeopleDto(save(peopleDto));
   }
 

@@ -4,6 +4,7 @@ import code.hub.ed.team1.exception.MovieNotFoundException;
 import code.hub.ed.team1.mapper.MovieMapper;
 import code.hub.ed.team1.model.*;
 import code.hub.ed.team1.repository.MovieRepository;
+import code.hub.ed.team1.repository.PeopleRepository;
 import code.hub.ed.team1.service.impl.MovieServiceImpl;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -22,7 +23,8 @@ public class MovieServiceTest {
     MovieRepository movieRepository = Mockito.mock(MovieRepository.class);
     Mockito.when(movieRepository.findById(Mockito.anyLong())).thenReturn(Optional.empty());
 
-    MovieServiceImpl movieService = new MovieServiceImpl(movieRepository, movieMapper);
+    MovieServiceImpl movieService =
+        new MovieServiceImpl(movieRepository, Mockito.mock(PeopleRepository.class), movieMapper);
     Assertions.assertThatThrownBy(() -> movieService.calculateCost(1l))
         .isInstanceOf(MovieNotFoundException.class)
         .hasMessage("No Movie with id '1' could be found");
@@ -91,10 +93,11 @@ public class MovieServiceTest {
     MovieRepository movieRepository = Mockito.mock(MovieRepository.class);
     Mockito.when(movieRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(movie));
 
-    MovieServiceImpl movieService = new MovieServiceImpl(movieRepository, movieMapper);
+    MovieServiceImpl movieService =
+        new MovieServiceImpl(movieRepository, Mockito.mock(PeopleRepository.class), movieMapper);
     BigDecimal totalCost = movieService.calculateCost(1);
-    Assertions.assertThat(BigDecimal.valueOf(10_138_569.60))
+    Assertions.assertThat(totalCost)
         .usingComparator(BigDecimal::compareTo)
-        .isEqualTo(totalCost);
+        .isEqualTo(BigDecimal.valueOf(10_138_569.60));
   }
 }

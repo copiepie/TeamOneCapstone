@@ -21,4 +21,16 @@ public class BestActorNomination extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "actor_id", nullable = false)
     private Actor actor;
+
+    @ManyToOne
+    @JoinColumn(name = "movie_id", nullable = false)
+    private Movie movie;
+
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private NominationResult nominationResult;
+
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Category category;
 }

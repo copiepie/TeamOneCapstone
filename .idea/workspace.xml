@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89a800de-868f-4c98-a6db-05c9043e2038" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/exception/MovieNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/api/Calculatable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/code/hub/ed/team1/service/MovieServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/test-application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/mapper/MovieMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/mapper/MovieMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/impl/MovieServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/impl/MovieServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbdata/h2/data/testdb.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/dbdata/h2/data/testdb.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbdata/h2/data/testdb.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/dbdata/h2/data/testdb.trace.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/mapper/BestActorNominationMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/mapper/BestActorNominationMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/repository/BestActorNominationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/repository/BestActorNominationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/api/BestActorNominationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/api/BestActorNominationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/impl/BestActorNominationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/impl/BestActorNominationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/code/hub/ed/team1/service/BestActorNominationServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/code/hub/ed/team1/service/BestActorNominationServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -47,6 +50,13 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "JUnit.ActorRepositoryTest.test_createActor_anActorGetsCreated.executor": "Run",
     "JUnit.ActorRepositoryTest.test_deletePeopleById_peopleRecordIsDeleted.executor": "Run",
+    "JUnit.BestActorNominationMapperTest.executor": "Run",
+    "JUnit.BestActorNominationMapperTest.test_mapNominationDtoToEntity.executor": "Run",
+    "JUnit.BestActorNominationMapperTest.test_mapNominationToDto.executor": "Run",
+    "JUnit.BestActorNominationRepositoryTest.test_updateBestActorNomination_mergeDoesNotCascadeToActor.executor": "Run",
+    "JUnit.BestActorNominationServiceTest.executor": "Run",
+    "JUnit.BestActorNominationServiceTest.test_getBestActorNominationsForYearsRange.executor": "Run",
+    "JUnit.BestActorNominationServiceTest.test_getByMinTimesNominated.executor": "Run",
     "JUnit.MovieRepositoryTest.test_createMovie_movieIsCreatedAndReturnedWhenQueried.executor": "Run",
     "JUnit.MovieServiceTest.executor": "Run",
     "JUnit.MovieServiceTest.test_calculateCost_movieFound_salariesPerProject_allSalariesAreCalculatedAsExpected.executor": "Run",
@@ -54,11 +64,13 @@
     "JUnit.PeopleMapperTest.executor": "Run",
     "JUnit.PeopleMapperTest.test_mapPeopleDtoToActor_yieldsAnActor.executor": "Run",
     "JUnit.PeopleRepositoryTest.test_getPeopleRecordForActor_allMoviesAndShowsAreIncluded.executor": "Debug",
+    "JUnit.TvShowServiceTest.test_calculateCost_tvShowFound_salariesPerEpisode_allSalariesCalculatedAsExpected.executor": "Run",
+    "JUnit.TvShowServiceTest.test_calculateCost_tvShowNotMovie_exceptionIsThrown.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/kpax/dev/java/spring/TeamOneCapstone",
+    "last_opened_file_path": "/Users/kpax/dev/java/spring/TeamOneCapstone/src/test/resources",
     "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
@@ -67,77 +79,30 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/resources" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="code.hub.ed.team1" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MovieServiceTest.test_calculateCost_movieFound_salariesPerProject_allSalariesAreCalculatedAsExpected">
-    <configuration name="MovieRepositoryTest.test_createMovie_movieIsCreatedAndReturnedWhenQueried" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.BestActorNominationServiceTest.test_getByMinTimesNominated">
+    <configuration name="BestActorNominationMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="team-one-ed-capstone" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="code.hub.ed.team1.repository.*" />
+          <option name="PATTERN" value="code.hub.ed.team1.dto.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="code.hub.ed.team1.repository" />
-      <option name="MAIN_CLASS_NAME" value="code.hub.ed.team1.repository.MovieRepositoryTest" />
-      <option name="METHOD_NAME" value="test_createMovie_movieIsCreatedAndReturnedWhenQueried" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MovieServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="team-one-ed-capstone" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="code.hub.ed.team1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="code.hub.ed.team1" />
-      <option name="MAIN_CLASS_NAME" value="code.hub.ed.team1.MovieServiceTest" />
+      <option name="PACKAGE_NAME" value="code.hub.ed.team1.dto" />
+      <option name="MAIN_CLASS_NAME" value="code.hub.ed.team1.dto.BestActorNominationMapperTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MovieServiceTest.test_calculateCost_movieFound_salariesPerProject_allSalariesAreCalculatedAsExpected" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="team-one-ed-capstone" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="code.hub.ed.team1.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="code.hub.ed.team1.service" />
-      <option name="MAIN_CLASS_NAME" value="code.hub.ed.team1.service.MovieServiceTest" />
-      <option name="METHOD_NAME" value="test_calculateCost_movieFound_salariesPerProject_allSalariesAreCalculatedAsExpected" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MovieServiceTest.test_calculateCost_movieNotFound_exceptionIsThrown" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="team-one-ed-capstone" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="code.hub.ed.team1.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="code.hub.ed.team1.service" />
-      <option name="MAIN_CLASS_NAME" value="code.hub.ed.team1.service.MovieServiceTest" />
-      <option name="METHOD_NAME" value="test_calculateCost_movieNotFound_exceptionIsThrown" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PeopleRepositoryTest.test_getPeopleRecordForActor_allMoviesAndShowsAreIncluded" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BestActorNominationRepositoryTest.test_updateBestActorNomination_mergeDoesNotCascadeToActor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="team-one-ed-capstone" />
       <extension name="coverage">
         <pattern>
@@ -146,8 +111,55 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="code.hub.ed.team1.repository" />
-      <option name="MAIN_CLASS_NAME" value="code.hub.ed.team1.repository.PeopleRepositoryTest" />
-      <option name="METHOD_NAME" value="test_getPeopleRecordForActor_allMoviesAndShowsAreIncluded" />
+      <option name="MAIN_CLASS_NAME" value="code.hub.ed.team1.repository.BestActorNominationRepositoryTest" />
+      <option name="METHOD_NAME" value="test_updateBestActorNomination_mergeDoesNotCascadeToActor" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BestActorNominationServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="team-one-ed-capstone" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="code.hub.ed.team1.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="code.hub.ed.team1.service" />
+      <option name="MAIN_CLASS_NAME" value="code.hub.ed.team1.service.BestActorNominationServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BestActorNominationServiceTest.test_getBestActorNominationsForYearsRange" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="team-one-ed-capstone" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="code.hub.ed.team1.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="code.hub.ed.team1.service" />
+      <option name="MAIN_CLASS_NAME" value="code.hub.ed.team1.service.BestActorNominationServiceTest" />
+      <option name="METHOD_NAME" value="test_getBestActorNominationsForYearsRange" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BestActorNominationServiceTest.test_getByMinTimesNominated" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="team-one-ed-capstone" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="code.hub.ed.team1.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="code.hub.ed.team1.service" />
+      <option name="MAIN_CLASS_NAME" value="code.hub.ed.team1.service.BestActorNominationServiceTest" />
+      <option name="METHOD_NAME" value="test_getByMinTimesNominated" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -155,11 +167,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MovieServiceTest.test_calculateCost_movieFound_salariesPerProject_allSalariesAreCalculatedAsExpected" />
-        <item itemvalue="JUnit.MovieServiceTest.test_calculateCost_movieNotFound_exceptionIsThrown" />
-        <item itemvalue="JUnit.MovieServiceTest" />
-        <item itemvalue="JUnit.PeopleRepositoryTest.test_getPeopleRecordForActor_allMoviesAndShowsAreIncluded" />
-        <item itemvalue="JUnit.MovieRepositoryTest.test_createMovie_movieIsCreatedAndReturnedWhenQueried" />
+        <item itemvalue="JUnit.BestActorNominationServiceTest.test_getByMinTimesNominated" />
+        <item itemvalue="JUnit.BestActorNominationServiceTest.test_getBestActorNominationsForYearsRange" />
+        <item itemvalue="JUnit.BestActorNominationServiceTest" />
+        <item itemvalue="JUnit.BestActorNominationRepositoryTest.test_updateBestActorNomination_mergeDoesNotCascadeToActor" />
+        <item itemvalue="JUnit.BestActorNominationMapperTest" />
       </list>
     </recent_temporary>
   </component>

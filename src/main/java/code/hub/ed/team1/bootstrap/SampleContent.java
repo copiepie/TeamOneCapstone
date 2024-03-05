@@ -23,8 +23,10 @@ public class SampleContent implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
+    if (movieService.hasMovies()) {
+        return;
+    }
     Lorem lorem = LoremIpsum.getInstance();
-
     IntStream.range(0, 10)
         .forEach(
             index -> {
