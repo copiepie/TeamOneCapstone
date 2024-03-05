@@ -85,4 +85,10 @@ public class BestActorNominationServiceImpl implements BestActorNominationServic
 
     return bestActorNominationsForYearsRange;
   }
+
+  @Override
+  public Set<BestActorNominationDto> getByMinTimesNominated(int minimumTimesNominated) {
+    return bestActorNominationMapper.toDto(
+        bestActorNominationRepository.findByMinTimesNominated(minimumTimesNominated));
+  }
 }

@@ -9,7 +9,10 @@ import java.util.Set;
 
 @Repository
 public interface BestActorNominationRepository extends JpaRepository<BestActorNomination, Long> {
-    @Query(
-            "select ban from BestActorNomination ban where ban.nominationYear > :from and ban.nominationYear <= :to")
-    Set<BestActorNomination> findByYearRange(int from, int to);
+  @Query(
+      "select ban from BestActorNomination ban where ban.nominationYear > :from and ban.nominationYear <= :to and ban.nominationResult = 'WON'")
+  Set<BestActorNomination> findByYearRange(int from, int to);
+
+  @Query("select ban from BestActorNomination ban group by (ban.id) having count(ban.actor) >= :minimumTimesNominated AND ban.nominationResult = 'NOMINATED'")
+  Set<BestActorNomination> findByMinTimesNominated(int minimumTimesNominated);
 }

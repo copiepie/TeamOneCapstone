@@ -7,4 +7,6 @@ import java.util.Set;
 
 public interface BestActorNominationService extends GeneralService<BestActorNominationDto, Long> {
   Map<Integer, Set<BestActorNominationDto>> getBestActorNominationsForYearsRange(int from, int to);
+
+  Set<BestActorNominationDto> getByMinTimesNominated(int minimumTimesNominated);
 }

@@ -1,10 +1,7 @@
 package code.hub.ed.team1.service;
 
 import code.hub.ed.team1.dto.BestActorNominationDto;
-import code.hub.ed.team1.model.Category;
-import code.hub.ed.team1.model.Genre;
-import code.hub.ed.team1.model.NominationResult;
-import code.hub.ed.team1.model.SalaryType;
+import code.hub.ed.team1.model.*;
 import code.hub.ed.team1.repository.ActorRepository;
 import code.hub.ed.team1.repository.BestActorNominationRepository;
 import code.hub.ed.team1.repository.DirectoryRepository;
@@ -16,13 +13,16 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestPropertySource;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 @SpringBootTest
+@TestPropertySource("/test-application.properties")
 public class BestActorNominationServiceTest {
 
   @Autowired private BestActorNominationService bestActorNominationService;
@@ -57,6 +57,24 @@ public class BestActorNominationServiceTest {
                 .map(dto -> dto.getActor())
                 .collect(Collectors.toSet()))
         .isEqualTo(Set.of("Shirley McLane"));
+
+    bestActorNominations =
+            bestActorNominationService.getBestActorNominationsForYearsRange(1970, 2000);
+    Assertions.assertThat(bestActorNominations.size()).isEqualTo(1);
+    Assertions.assertThat(bestActorNominations.keySet()).isEqualTo(Set.of(1984));
+  }
+
+  @Test
+  public void test_getByMinTimesNominated() {
+    List<Actor> actors = actorRepository.findAll();
+
+
+
+    Set<BestActorNominationDto> bestActorNominations =
+        bestActorNominationService.getByMinTimesNominated(1);
+    Assertions.assertThat(bestActorNominations.size()).isEqualTo(2);
+
+
   }
 
   @BeforeEach

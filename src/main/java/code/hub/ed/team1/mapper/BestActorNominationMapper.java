@@ -7,6 +7,8 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 import org.mapstruct.factory.Mappers;
 
+import java.util.Set;
+
 @Mapper(componentModel = "spring")
 public interface BestActorNominationMapper {
   BestActorNominationMapper INSTANCE = Mappers.getMapper(BestActorNominationMapper.class);
@@ -24,4 +26,6 @@ public interface BestActorNominationMapper {
     @Mapping(source = "movieId", target = "movie.id")
   })
   BestActorNomination toEntity(BestActorNominationDto bestActorNominationDto);
+
+  Set<BestActorNominationDto> toDto(Set<BestActorNomination> bestActorNominations);
 }
