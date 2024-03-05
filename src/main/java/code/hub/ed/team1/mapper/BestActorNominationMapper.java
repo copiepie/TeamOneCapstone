@@ -13,10 +13,15 @@ public interface BestActorNominationMapper {
 
   @Mappings({
     @Mapping(source = "actor.name", target = "actor"),
-    @Mapping(source = "actor.id", target = "actorId")
+    @Mapping(source = "actor.id", target = "actorId"),
+    @Mapping(source = "movie.title", target = "movie"),
+    @Mapping(source = "movie.id", target = "movieId")
   })
   BestActorNominationDto toDto(BestActorNomination bestActorNomination);
 
-  @Mappings({@Mapping(source = "actorId", target = "actor.id")})
+  @Mappings({
+    @Mapping(source = "actorId", target = "actor.id"),
+    @Mapping(source = "movieId", target = "movie.id")
+  })
   BestActorNomination toEntity(BestActorNominationDto bestActorNominationDto);
 }

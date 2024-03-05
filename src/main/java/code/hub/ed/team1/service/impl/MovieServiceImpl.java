@@ -22,7 +22,7 @@ import java.util.stream.Stream;
 
 @Service
 @AllArgsConstructor
-public class MovieServiceImpl implements MovieService, Calculatable {
+public class MovieServiceImpl implements MovieService {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(MovieServiceImpl.class.getName());
 

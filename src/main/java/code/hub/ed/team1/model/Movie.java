@@ -2,11 +2,13 @@ package code.hub.ed.team1.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
 import java.util.Set;
 
 @Entity
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter

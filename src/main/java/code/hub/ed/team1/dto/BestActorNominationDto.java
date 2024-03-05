@@ -10,5 +10,7 @@ public class BestActorNominationDto extends BaseDto {
     private Genre genre;
     private String actor;
     private long actorId;
+    private String movie;
+    private long movieId;
     private NominationResult nominationResult;
 }

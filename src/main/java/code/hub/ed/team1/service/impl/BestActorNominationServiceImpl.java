@@ -9,7 +9,8 @@ import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -56,5 +57,32 @@ public class BestActorNominationServiceImpl implements BestActorNominationServic
   @Override
   public void delete(Long id) {
     bestActorNominationRepository.deleteById(id);
+  }
+
+  @Override
+  public Map<Integer, Set<BestActorNominationDto>> getBestActorNominationsForYearsRange(
+      int from, int to) {
+    Set<BestActorNomination> bestActorNominationsInTimespan =
+        bestActorNominationRepository.findByYearRange(from, to);
+
+    if (bestActorNominationsInTimespan.isEmpty()) {
+      return Collections.emptyMap();
+    }
+    Set<Integer> years =
+        bestActorNominationsInTimespan.stream()
+            .map(BestActorNomination::getNominationYear)
+            .collect(Collectors.toSet());
+
+    Map<Integer, Set<BestActorNominationDto>> bestActorNominationsForYearsRange = new HashMap<>();
+    for (Integer year : years) {
+      Set<BestActorNominationDto> match =
+          bestActorNominationsInTimespan.stream()
+              .filter(bestActorNomination -> bestActorNomination.getNominationYear() == year)
+              .map(bestActorNominationMapper::toDto)
+              .collect(Collectors.toSet());
+      bestActorNominationsForYearsRange.put(year, match);
+    }
+
+    return bestActorNominationsForYearsRange;
   }
 }

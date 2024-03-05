@@ -17,7 +17,7 @@ import java.util.stream.Stream;
 
 @Service
 @AllArgsConstructor
-public class TvShowServiceImpl implements TvShowService, Calculatable {
+public class TvShowServiceImpl implements TvShowService {
 
   private final TvShowRepository tvShowRepository;
 
