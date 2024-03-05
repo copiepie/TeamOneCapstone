@@ -8,15 +8,29 @@ import java.util.Set;
 
 @Data
 public class TvShowDto extends BaseDto {
-    DirectorDto director;
-    Set<ActorDto> actors;
-    Set<ProducerDto> producers;
-    Set<CrewMemberDto> crewMembers;
-    private BigDecimal minBugdet;
-    private BigDecimal maxBugdet;
-    private Integer startingYear;
-    private Integer endingYear;
-    private Integer numberOfEpisodes;
+    
     private String title;
+    
+    private DirectorDto director;
+    
+    private Set<ActorDto> actors;
+    
+    private Set<ProducerDto> producers;
+    
+    private Set<CrewMemberDto> crewMembers;
+    
+    private Set<PeopleDto> people;
+    
     private Genre genre;
+    
+    private BigDecimal minBudgetPerEpisode;
+    
+    private BigDecimal maxBudgetPerEpisode;
+    
+    private Integer startingYear;
+    
+    private Integer endingYear;
+    
+    private Integer numberOfEpisodes;
 }
+

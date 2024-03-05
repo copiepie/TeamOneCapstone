@@ -13,49 +13,50 @@ import java.util.Set;
 @Setter
 @Builder
 public class TvShow extends BaseEntity {
-  @ManyToOne
+  
+  private String title;
+  
+  @ManyToOne(cascade = CascadeType.PERSIST)
   @JoinColumn(name = "director_id", nullable = false)
   private Director director;
-
-  @ManyToMany
+  
+  @ManyToMany(cascade = CascadeType.PERSIST)
   @JoinTable(
-      name = "actor_tvshow",
-      joinColumns = @JoinColumn(name = "actor_id"),
-      inverseJoinColumns = @JoinColumn(name = "tvshow_id"))
+          name = "actor_tvshow",
+          joinColumns = @JoinColumn(name = "tvshow_id"),
+          inverseJoinColumns = @JoinColumn(name = "actor_id"))
   private Set<Actor> actors;
-
-  @ManyToMany
+  
+  @ManyToMany(cascade = CascadeType.PERSIST)
   @JoinTable(
-      name = "producer_tvshow",
-      joinColumns = @JoinColumn(name = "producer_id"),
-      inverseJoinColumns = @JoinColumn(name = "tvshow_id"))
+          name = "producer_tvshow",
+          joinColumns = @JoinColumn(name = "tvshow_id"),
+          inverseJoinColumns = @JoinColumn(name = "producer_id"))
   private Set<Producer> producers;
-
-  @ManyToMany
+  
+  @ManyToMany(cascade = CascadeType.PERSIST)
   @JoinTable(
-      name = "crew_tvshow",
-      joinColumns = @JoinColumn(name = "crew_id"),
-      inverseJoinColumns = @JoinColumn(name = "tvshow_id"))
+          name = "crew_tvshow",
+          joinColumns = @JoinColumn(name = "tvshow_id"),
+          inverseJoinColumns = @JoinColumn(name = "crew_member_id"))
   private Set<CrewMember> crewMembers;
-
+  
+  @Enumerated
   @Column(nullable = false)
-  private BigDecimal minBugdet;
-
+  private Genre genre;
+  
   @Column(nullable = false)
-  private BigDecimal maxBugdet;
-
+  private BigDecimal minBudgetPerEpisode;
+  
+  @Column(nullable = false)
+  private BigDecimal maxBudgetPerEpisode;
+  
   @Column(nullable = false)
   private Integer startingYear;
-
+  
+  @Column(nullable = false)
   private Integer endingYear;
-
+  
   @Column(nullable = false)
   private Integer numberOfEpisodes;
-
-  @Column(nullable = false)
-  private String title;
-
-  @Column(nullable = false)
-  @Enumerated(EnumType.STRING)
-  private Genre genre;
 }
