@@ -2,10 +2,7 @@ package code.hub.ed.team1.service;
 
 import code.hub.ed.team1.dto.BestActorNominationDto;
 import code.hub.ed.team1.model.*;
-import code.hub.ed.team1.repository.ActorRepository;
-import code.hub.ed.team1.repository.BestActorNominationRepository;
-import code.hub.ed.team1.repository.DirectoryRepository;
-import code.hub.ed.team1.repository.MovieRepository;
+import code.hub.ed.team1.repository.*;
 import code.hub.ed.team1.service.api.BestActorNominationService;
 import code.hub.ed.team1.util.NominationTestData;
 import org.assertj.core.api.Assertions;
@@ -35,6 +32,8 @@ public class BestActorNominationServiceTest {
 
   @Autowired private MovieRepository movieRepository;
 
+  @Autowired private PeopleRepository peopleRepository;
+
   @Test
   public void test_getBestActorNominationsForYearsRange() {
     Map<Integer, Set<BestActorNominationDto>> bestActorNominations =
@@ -59,22 +58,159 @@ public class BestActorNominationServiceTest {
         .isEqualTo(Set.of("Shirley McLane"));
 
     bestActorNominations =
-            bestActorNominationService.getBestActorNominationsForYearsRange(1970, 2000);
+        bestActorNominationService.getBestActorNominationsForYearsRange(1970, 2000);
     Assertions.assertThat(bestActorNominations.size()).isEqualTo(1);
     Assertions.assertThat(bestActorNominations.keySet()).isEqualTo(Set.of(1984));
   }
 
   @Test
   public void test_getByMinTimesNominated() {
-    List<Actor> actors = actorRepository.findAll();
+    Actor lee =
+        Actor.builder()
+            .salary(BigDecimal.ONE)
+            .salaryType(SalaryType.FULL_PROJECT)
+            .name("Lee Van Cliff")
+            .build();
 
+    Actor clint =
+        Actor.builder()
+            .salary(BigDecimal.ONE)
+            .salaryType(SalaryType.FULL_PROJECT)
+            .name("Lee Van Cliff")
+            .build();
 
+    lee = peopleRepository.save(lee);
+    clint = peopleRepository.save(clint);
+
+    Movie theGoodBadAndUgly =
+        Movie.builder()
+            .crewMembers(
+                Set.of(
+                    CrewMember.builder()
+                        .salary(BigDecimal.ONE)
+                        .salaryType(SalaryType.FULL_PROJECT)
+                        .name("Charlotte")
+                        .build()))
+            .actors(Set.of(lee))
+            .director(
+                Director.builder()
+                    .salary(BigDecimal.ONE)
+                    .salaryType(SalaryType.FULL_PROJECT)
+                    .name("Sergio Leone")
+                    .build())
+            .producers(
+                Set.of(
+                    Producer.builder()
+                        .salary(BigDecimal.ONE)
+                        .salaryType(SalaryType.FULL_PROJECT)
+                        .name("Enio Moriccone")
+                        .build()))
+            .title("The Good, the bad and the ugly")
+            .genre(Genre.DRAMA)
+            .productionBudget(BigDecimal.ONE)
+            .yearOfRelease(1972)
+            .build();
+
+    Movie forHandfulOfDollars =
+        Movie.builder()
+            .crewMembers(
+                Set.of(
+                    CrewMember.builder()
+                        .salary(BigDecimal.ONE)
+                        .salaryType(SalaryType.FULL_PROJECT)
+                        .name("Charlotte")
+                        .build()))
+            .actors(Set.of(lee))
+            .director(
+                Director.builder()
+                    .salary(BigDecimal.ONE)
+                    .salaryType(SalaryType.FULL_PROJECT)
+                    .name("Sergio Leone")
+                    .build())
+            .producers(
+                Set.of(
+                    Producer.builder()
+                        .salary(BigDecimal.ONE)
+                        .salaryType(SalaryType.FULL_PROJECT)
+                        .name("Enio Moriccone")
+                        .build()))
+            .title("The Good, the bad and the ugly")
+            .genre(Genre.DRAMA)
+            .productionBudget(BigDecimal.ONE)
+            .yearOfRelease(1973)
+            .build();
+
+    Movie forFewDollarsMore =
+        Movie.builder()
+            .crewMembers(
+                Set.of(
+                    CrewMember.builder()
+                        .salary(BigDecimal.ONE)
+                        .salaryType(SalaryType.FULL_PROJECT)
+                        .name("Charlotte")
+                        .build()))
+            .actors(Set.of(clint))
+            .director(
+                Director.builder()
+                    .salary(BigDecimal.ONE)
+                    .salaryType(SalaryType.FULL_PROJECT)
+                    .name("Sergio Leone")
+                    .build())
+            .producers(
+                Set.of(
+                    Producer.builder()
+                        .salary(BigDecimal.ONE)
+                        .salaryType(SalaryType.FULL_PROJECT)
+                        .name("Enio Moriccone")
+                        .build()))
+            .title("The Good, the bad and the ugly")
+            .genre(Genre.DRAMA)
+            .productionBudget(BigDecimal.ONE)
+            .yearOfRelease(1972)
+            .build();
+
+    theGoodBadAndUgly = movieRepository.save(theGoodBadAndUgly);
+    forHandfulOfDollars = movieRepository.save(forHandfulOfDollars);
+    forFewDollarsMore = movieRepository.save(forFewDollarsMore);
+
+    BestActorNomination lvc1 =
+        BestActorNomination.builder()
+            .actor(lee)
+            .movie(theGoodBadAndUgly)
+            .category(Category.BEST_MALE_ROLE)
+            .genre(Genre.DRAMA)
+            .nominationResult(NominationResult.NOMINATED)
+            .nominationYear(1989)
+            .build();
+
+    BestActorNomination lvc2 =
+        BestActorNomination.builder()
+            .actor(lee)
+            .movie(forHandfulOfDollars)
+            .category(Category.BEST_HERO)
+            .genre(Genre.DRAMA)
+            .nominationResult(NominationResult.NOMINATED)
+            .nominationYear(1986)
+            .build();
+
+    BestActorNomination cea =
+        BestActorNomination.builder()
+            .actor(clint)
+            .movie(forFewDollarsMore)
+            .category(Category.BEST_SUPPORTING)
+            .genre(Genre.DRAMA)
+            .nominationResult(NominationResult.NOMINATED)
+            .nominationYear(1982)
+            .build();
+
+    bestActorNominationRepository.saveAll(List.of(lvc1, lvc2, cea));
 
     Set<BestActorNominationDto> bestActorNominations =
         bestActorNominationService.getByMinTimesNominated(1);
+    Assertions.assertThat(bestActorNominations.size()).isEqualTo(3);
+
+    bestActorNominations = bestActorNominationService.getByMinTimesNominated(2);
     Assertions.assertThat(bestActorNominations.size()).isEqualTo(2);
-
-
   }
 
   @BeforeEach

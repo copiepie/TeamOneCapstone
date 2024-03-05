@@ -1,5 +1,6 @@
 package code.hub.ed.team1.dto;
 
+import code.hub.ed.team1.model.Category;
 import code.hub.ed.team1.model.Genre;
 import code.hub.ed.team1.model.NominationResult;
 import lombok.Data;
@@ -13,4 +14,5 @@ public class BestActorNominationDto extends BaseDto {
     private String movie;
     private long movieId;
     private NominationResult nominationResult;
+    private Category category;
 }

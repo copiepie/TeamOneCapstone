@@ -1,6 +1,7 @@
 package code.hub.ed.team1.service;
 
 import code.hub.ed.team1.exception.TvShowNotFoundException;
+import code.hub.ed.team1.mapper.TvShowMapper;
 import code.hub.ed.team1.model.*;
 import code.hub.ed.team1.repository.TvShowRepository;
 import code.hub.ed.team1.service.impl.TvShowServiceImpl;
@@ -20,7 +21,7 @@ public class TvShowServiceTest {
     TvShowRepository tvShowRepository = Mockito.mock(TvShowRepository.class);
     Mockito.when(tvShowRepository.findById(Mockito.anyLong())).thenReturn(Optional.empty());
 
-    TvShowServiceImpl tvShowService = new TvShowServiceImpl(tvShowRepository);
+    TvShowServiceImpl tvShowService = new TvShowServiceImpl(tvShowRepository, TvShowMapper.INSTANCE);
     Assertions.assertThatThrownBy(() -> tvShowService.calculateCost(1l))
         .isInstanceOf(TvShowNotFoundException.class)
         .hasMessage("No TV-Show with id '1' could be found");
@@ -88,7 +89,7 @@ public class TvShowServiceTest {
     TvShowRepository tvShowRepository = Mockito.mock(TvShowRepository.class);
     Mockito.when(tvShowRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(tvShow));
 
-    TvShowServiceImpl tvShowService = new TvShowServiceImpl(tvShowRepository);
+    TvShowServiceImpl tvShowService = new TvShowServiceImpl(tvShowRepository, TvShowMapper.INSTANCE);
     BigDecimal totalCost = tvShowService.calculateCost(1l);
     Assertions.assertThat(totalCost)
         .usingComparator(BigDecimal::compareTo)

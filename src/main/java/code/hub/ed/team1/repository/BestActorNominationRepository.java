@@ -13,6 +13,20 @@ public interface BestActorNominationRepository extends JpaRepository<BestActorNo
       "select ban from BestActorNomination ban where ban.nominationYear > :from and ban.nominationYear <= :to and ban.nominationResult = 'WON'")
   Set<BestActorNomination> findByYearRange(int from, int to);
 
-  @Query("select ban from BestActorNomination ban group by (ban.id) having count(ban.actor) >= :minimumTimesNominated AND ban.nominationResult = 'NOMINATED'")
+  @Query(
+      "select ban from BestActorNomination ban group by (actor.id) having count(ban.actor) >= :minimumTimesNominated AND ban.nominationResult = 'NOMINATED'")
   Set<BestActorNomination> findByMinTimesNominated(int minimumTimesNominated);
+
+  @Query(
+      """
+          select ban from BestActorNomination ban
+          group by (actor.id)
+          having count(ban.actor) >= :minimumTimesNominated
+          AND NOT EXISTS (
+            select ban2 from BestActorNomination ban2
+            where ban2.nominationResult = 'WON'
+            and ban2.actor = ban.actor
+          )
+          """)
+  Set<BestActorNomination> findByMinTimesNominatedAndNeverWon(int minimumTimesNominated);
 }

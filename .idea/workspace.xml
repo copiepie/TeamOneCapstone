@@ -5,15 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89a800de-868f-4c98-a6db-05c9043e2038" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/resources/test-application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dbdata/h2/data/testdb.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/dbdata/h2/data/testdb.mv.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dbdata/h2/data/testdb.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/dbdata/h2/data/testdb.trace.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/mapper/BestActorNominationMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/mapper/BestActorNominationMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/dto/BestActorNominationDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/dto/BestActorNominationDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/mapper/TvShowMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/mapper/TvShowMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/repository/BestActorNominationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/repository/BestActorNominationRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/api/BestActorNominationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/api/BestActorNominationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/impl/BestActorNominationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/impl/BestActorNominationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/impl/TvShowServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/impl/TvShowServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/code/hub/ed/team1/repository/BestActorNominationRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/code/hub/ed/team1/repository/BestActorNominationRepositoryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/code/hub/ed/team1/service/BestActorNominationServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/code/hub/ed/team1/service/BestActorNominationServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/code/hub/ed/team1/service/TvShowServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/code/hub/ed/team1/service/TvShowServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,21 +88,6 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.BestActorNominationServiceTest.test_getByMinTimesNominated">
-    <configuration name="BestActorNominationMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="team-one-ed-capstone" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="code.hub.ed.team1.dto.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="code.hub.ed.team1.dto" />
-      <option name="MAIN_CLASS_NAME" value="code.hub.ed.team1.dto.BestActorNominationMapperTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="BestActorNominationRepositoryTest.test_updateBestActorNomination_mergeDoesNotCascadeToActor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="team-one-ed-capstone" />
       <extension name="coverage">
@@ -165,13 +151,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MovieRepositoryTest.test_createMovie_movieIsCreatedAndReturnedWhenQueried" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="team-one-ed-capstone" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="code.hub.ed.team1.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="code.hub.ed.team1.repository" />
+      <option name="MAIN_CLASS_NAME" value="code.hub.ed.team1.repository.MovieRepositoryTest" />
+      <option name="METHOD_NAME" value="test_createMovie_movieIsCreatedAndReturnedWhenQueried" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.BestActorNominationServiceTest.test_getByMinTimesNominated" />
+        <item itemvalue="JUnit.MovieRepositoryTest.test_createMovie_movieIsCreatedAndReturnedWhenQueried" />
+        <item itemvalue="JUnit.BestActorNominationRepositoryTest.test_updateBestActorNomination_mergeDoesNotCascadeToActor" />
         <item itemvalue="JUnit.BestActorNominationServiceTest.test_getBestActorNominationsForYearsRange" />
         <item itemvalue="JUnit.BestActorNominationServiceTest" />
-        <item itemvalue="JUnit.BestActorNominationRepositoryTest.test_updateBestActorNomination_mergeDoesNotCascadeToActor" />
-        <item itemvalue="JUnit.BestActorNominationMapperTest" />
       </list>
     </recent_temporary>
   </component>
@@ -210,8 +212,33 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/code/hub/ed/team1/model/TvShow.java</url>
-          <line>20</line>
+          <line>23</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/code/hub/ed/team1/repository/BestActorNominationRepositoryTest.java</url>
+          <line>102</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/code/hub/ed/team1/repository/BestActorNominationRepositoryTest.java</url>
+          <line>95</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/code/hub/ed/team1/service/BestActorNominationServiceTest.java</url>
+          <line>211</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/code/hub/ed/team1/service/BestActorNominationServiceTest.java</url>
+          <line>85</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/code/hub/ed/team1/service/BestActorNominationServiceTest.java</url>
+          <line>171</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
