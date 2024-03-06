@@ -2,34 +2,42 @@ package code.hub.ed.team1.controller;
 
 import code.hub.ed.team1.dto.CrewMemberDto;
 import code.hub.ed.team1.service.api.CrewMemberService;
-import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequiredArgsConstructor
-@RequestMapping("/crewMember")
+@RequestMapping("/crew-members")
 public class CrewMemberController {
-
+    
     private final CrewMemberService crewMemberService;
-
+    
+    public CrewMemberController(CrewMemberService crewMemberService) {
+        this.crewMemberService = crewMemberService;
+    }
+    
+    @GetMapping
+    public List<CrewMemberDto> getAllCrewMembers() {
+        return crewMemberService.findAllCrewMembers();
+    }
+    
     @GetMapping("/{id}")
-    public CrewMemberDto getCrewMember(@PathVariable("id") long id) {
+    public CrewMemberDto getCrewMemberById(@PathVariable Long id) {
         return crewMemberService.read(id);
     }
-
+    
     @PostMapping
-    public CrewMemberDto createCrewMember(CrewMemberDto crewMemberDto) {
+    public CrewMemberDto createCrewMember(@RequestBody CrewMemberDto crewMemberDto) {
         return crewMemberService.create(crewMemberDto);
     }
-
-    @PutMapping
-    public CrewMemberDto updateCrewMember(CrewMemberDto crewMemberDto) {
-        return crewMemberService.update(crewMemberDto);
+    
+    @PutMapping("/{id}")
+    public CrewMemberDto updateCrewMember(@PathVariable Long id, @RequestBody CrewMemberDto crewMemberDto) {
+        return crewMemberService.update(id, crewMemberDto);
     }
-
+    
     @DeleteMapping("/{id}")
-    public void deleteCrewMember(@PathVariable("id") long id) {
+    public void deleteCrewMember(@PathVariable Long id) {
         crewMemberService.delete(id);
     }
 }

@@ -5,6 +5,9 @@ import code.hub.ed.team1.mapper.CrewMemberMapper;
 import code.hub.ed.team1.model.CrewMember;
 import code.hub.ed.team1.repository.CrewMemberRepository;
 import code.hub.ed.team1.service.api.CrewMemberService;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -33,7 +36,7 @@ public class CrewMemberServiceImpl implements CrewMemberService {
   }
 
   @Override
-  public CrewMemberDto update(CrewMemberDto crewMemberDto) {
+  public CrewMemberDto update(Long id, CrewMemberDto crewMemberDto) {
     Optional<CrewMember> optionalCrewMember = crewMemberRepository.findById(crewMemberDto.getId());
     if ( optionalCrewMember.isPresent()){
       CrewMember crewMember = crewMemberMapper.crewMemberDtoToCrewMember(crewMemberDto);
@@ -50,4 +53,14 @@ public class CrewMemberServiceImpl implements CrewMemberService {
   public void delete(Long id) {
     crewMemberRepository.deleteById(id);
   }
+  
+  public List<CrewMemberDto> findAllCrewMembers() {
+    List<CrewMember> crewMembers = crewMemberRepository.findAll();
+    List<CrewMemberDto> crewMemberDtos = new ArrayList<>();
+    for (CrewMember crewMember : crewMembers) {
+      crewMemberDtos.add(crewMemberMapper.crewMemberToCrewMemberDto(crewMember));
+    }
+    return crewMemberDtos;
+  }
 }
+
