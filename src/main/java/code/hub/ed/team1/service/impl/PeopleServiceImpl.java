@@ -1,9 +1,13 @@
 package code.hub.ed.team1.service.impl;
 
+import code.hub.ed.team1.dto.MovieDto;
 import code.hub.ed.team1.dto.PeopleDto;
+import code.hub.ed.team1.dto.TvShowDto;
+import code.hub.ed.team1.mapper.MovieMapper;
 import code.hub.ed.team1.exception.PersonNotFoundException;
 import code.hub.ed.team1.exception.ProfessionDoesNotExistException;
 import code.hub.ed.team1.mapper.PeopleMapper;
+import code.hub.ed.team1.mapper.TvShowMapper;
 import code.hub.ed.team1.model.*;
 import code.hub.ed.team1.repository.*;
 import code.hub.ed.team1.service.api.PeopleService;
@@ -11,6 +15,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -29,6 +35,10 @@ public class PeopleServiceImpl implements PeopleService {
   private final PeopleRepository peopleRepository;
 
   private final PeopleMapper peopleMapper;
+
+  private final MovieMapper movieMapper;
+
+  private final TvShowMapper tvShowMapper;
 
   private People save(PeopleDto peopleDto) {
     switch (peopleDto.getProfession()) {
@@ -76,5 +86,27 @@ public class PeopleServiceImpl implements PeopleService {
   @Override
   public void delete(Long id) {
     peopleRepository.deleteById(id);
+  }
+
+
+  @Override
+  public PeopleDto findByIdWithMoviesAndTvShows(Long id) {
+    Optional<People> optionalPeople = peopleRepository.findById(id);
+    People people = optionalPeople.orElseThrow(IllegalArgumentException::new);
+
+    Set<MovieDto> movieDtos = people.getMovies().stream()
+            .map(movieMapper::movieToMovieDto)
+            .collect(Collectors.toSet());
+
+    Set<TvShowDto> tvShowDtos = people.getTvShows().stream()
+            .map(tvShowMapper::tvShowToTvShowDto)
+            .collect(Collectors.toSet());
+
+    PeopleDto peopleDto = peopleMapper.peopleToPeopleDto(people);
+
+    peopleDto.setMovies(movieDtos);
+    peopleDto.setTvShows(tvShowDtos);
+
+    return peopleDto;
   }
 }
