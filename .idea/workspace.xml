@@ -6,15 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="89a800de-868f-4c98-a6db-05c9043e2038" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbdata/h2/data/testdb.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/dbdata/h2/data/testdb.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbdata/h2/data/testdb.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/dbdata/h2/data/testdb.trace.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/dto/BestActorNominationDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/dto/BestActorNominationDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/mapper/TvShowMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/mapper/TvShowMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/repository/BestActorNominationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/repository/BestActorNominationRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/impl/TvShowServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/hub/ed/team1/service/impl/TvShowServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/code/hub/ed/team1/repository/BestActorNominationRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/code/hub/ed/team1/repository/BestActorNominationRepositoryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/code/hub/ed/team1/service/BestActorNominationServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/code/hub/ed/team1/service/BestActorNominationServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/code/hub/ed/team1/service/TvShowServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/code/hub/ed/team1/service/TvShowServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,38 +38,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "JUnit.ActorRepositoryTest.test_createActor_anActorGetsCreated.executor": "Run",
-    "JUnit.ActorRepositoryTest.test_deletePeopleById_peopleRecordIsDeleted.executor": "Run",
-    "JUnit.BestActorNominationMapperTest.executor": "Run",
-    "JUnit.BestActorNominationMapperTest.test_mapNominationDtoToEntity.executor": "Run",
-    "JUnit.BestActorNominationMapperTest.test_mapNominationToDto.executor": "Run",
-    "JUnit.BestActorNominationRepositoryTest.test_updateBestActorNomination_mergeDoesNotCascadeToActor.executor": "Run",
-    "JUnit.BestActorNominationServiceTest.executor": "Run",
-    "JUnit.BestActorNominationServiceTest.test_getBestActorNominationsForYearsRange.executor": "Run",
-    "JUnit.BestActorNominationServiceTest.test_getByMinTimesNominated.executor": "Run",
-    "JUnit.MovieRepositoryTest.test_createMovie_movieIsCreatedAndReturnedWhenQueried.executor": "Run",
-    "JUnit.MovieServiceTest.executor": "Run",
-    "JUnit.MovieServiceTest.test_calculateCost_movieFound_salariesPerProject_allSalariesAreCalculatedAsExpected.executor": "Run",
-    "JUnit.MovieServiceTest.test_calculateCost_movieNotFound_exceptionIsThrown.executor": "Run",
-    "JUnit.PeopleMapperTest.executor": "Run",
-    "JUnit.PeopleMapperTest.test_mapPeopleDtoToActor_yieldsAnActor.executor": "Run",
-    "JUnit.PeopleRepositoryTest.test_getPeopleRecordForActor_allMoviesAndShowsAreIncluded.executor": "Debug",
-    "JUnit.TvShowServiceTest.test_calculateCost_tvShowFound_salariesPerEpisode_allSalariesCalculatedAsExpected.executor": "Run",
-    "JUnit.TvShowServiceTest.test_calculateCost_tvShowNotMovie_exceptionIsThrown.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/kpax/dev/java/spring/TeamOneCapstone/src/test/resources",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;JUnit.ActorRepositoryTest.test_createActor_anActorGetsCreated.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ActorRepositoryTest.test_deletePeopleById_peopleRecordIsDeleted.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BestActorNominationMapperTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BestActorNominationMapperTest.test_mapNominationDtoToEntity.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BestActorNominationMapperTest.test_mapNominationToDto.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BestActorNominationRepositoryTest.test_updateBestActorNomination_mergeDoesNotCascadeToActor.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BestActorNominationServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BestActorNominationServiceTest.test_getBestActorNominationsForYearsRange.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BestActorNominationServiceTest.test_getByMinTimesNominated.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.MovieRepositoryTest.test_createMovie_movieIsCreatedAndReturnedWhenQueried.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MovieServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MovieServiceTest.test_calculateCost_movieFound_salariesPerProject_allSalariesAreCalculatedAsExpected.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MovieServiceTest.test_calculateCost_movieNotFound_exceptionIsThrown.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PeopleMapperTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PeopleMapperTest.test_mapPeopleDtoToActor_yieldsAnActor.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PeopleRepositoryTest.test_getPeopleRecordForActor_allMoviesAndShowsAreIncluded.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.TvShowServiceTest.test_calculateCost_tvShowFound_salariesPerEpisode_allSalariesCalculatedAsExpected.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TvShowServiceTest.test_calculateCost_tvShowNotMovie_exceptionIsThrown.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/kpax/dev/java/spring/TeamOneCapstone/src/test/resources&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/test/resources" />
@@ -227,18 +219,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/code/hub/ed/team1/service/BestActorNominationServiceTest.java</url>
-          <line>211</line>
-          <option name="timeStamp" value="6" />
+          <line>161</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/code/hub/ed/team1/service/BestActorNominationServiceTest.java</url>
-          <line>85</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/code/hub/ed/team1/service/BestActorNominationServiceTest.java</url>
-          <line>171</line>
-          <option name="timeStamp" value="10" />
+          <line>93</line>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

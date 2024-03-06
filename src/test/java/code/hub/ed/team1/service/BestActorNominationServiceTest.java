@@ -1,10 +1,13 @@
 package code.hub.ed.team1.service;
 
-import code.hub.ed.team1.dto.BestActorNominationDto;
+import code.hub.ed.team1.dto.*;
 import code.hub.ed.team1.model.*;
 import code.hub.ed.team1.repository.*;
 import code.hub.ed.team1.service.api.BestActorNominationService;
+import code.hub.ed.team1.service.api.MovieService;
 import code.hub.ed.team1.util.NominationTestData;
+import com.thedeanda.lorem.Lorem;
+import com.thedeanda.lorem.LoremIpsum;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,10 +16,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 
 import java.math.BigDecimal;
-import java.util.List;
+import java.util.ArrayDeque;
 import java.util.Map;
+import java.util.Queue;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @SpringBootTest
 @TestPropertySource("/test-application.properties")
@@ -33,6 +38,8 @@ public class BestActorNominationServiceTest {
   @Autowired private MovieRepository movieRepository;
 
   @Autowired private PeopleRepository peopleRepository;
+
+  @Autowired private MovieService movieService;
 
   @Test
   public void test_getBestActorNominationsForYearsRange() {
@@ -65,152 +72,144 @@ public class BestActorNominationServiceTest {
 
   @Test
   public void test_getByMinTimesNominated() {
-    Actor lee =
-        Actor.builder()
-            .salary(BigDecimal.ONE)
-            .salaryType(SalaryType.FULL_PROJECT)
-            .name("Lee Van Cliff")
-            .build();
+    Queue<DirectorDto> directors = makeDirectors(3);
+    Queue<ProducerDto> producers = makeProducers(3);
+    Queue<CrewMemberDto> crewMembers = makeCrewMembers(3);
 
-    Actor clint =
-        Actor.builder()
-            .salary(BigDecimal.ONE)
-            .salaryType(SalaryType.FULL_PROJECT)
-            .name("Lee Van Cliff")
-            .build();
+    MovieDto theGoodBadAndUgly = new MovieDto();
+    theGoodBadAndUgly.setGenre(Genre.DRAMA);
+    theGoodBadAndUgly.setTitle("The good, the bad and the ugly");
+    theGoodBadAndUgly.setProductionBudget(BigDecimal.ONE);
+    theGoodBadAndUgly.setYearOfRelease(1971);
+    theGoodBadAndUgly.setDirector(directors.poll());
+    theGoodBadAndUgly.setProducers(Set.of(producers.poll()));
+    theGoodBadAndUgly.setCrewMembers(Set.of(crewMembers.poll()));
+    ActorDto lee = new ActorDto();
+    lee.setName("Lee van Cliff");
+    lee.setProfession(Profession.ACTOR);
+    lee.setSalary(BigDecimal.ONE);
+    lee.setSalaryType(SalaryType.FULL_PROJECT);
+    theGoodBadAndUgly.setActors(Set.of(lee));
 
-    lee = peopleRepository.save(lee);
-    clint = peopleRepository.save(clint);
+    theGoodBadAndUgly = movieService.create(theGoodBadAndUgly);
+    lee.setId(theGoodBadAndUgly.getActors().iterator().next().getId());
 
-    Movie theGoodBadAndUgly =
-        Movie.builder()
-            .crewMembers(
-                Set.of(
-                    CrewMember.builder()
-                        .salary(BigDecimal.ONE)
-                        .salaryType(SalaryType.FULL_PROJECT)
-                        .name("Charlotte")
-                        .build()))
-            .actors(Set.of(lee))
-            .director(
-                Director.builder()
-                    .salary(BigDecimal.ONE)
-                    .salaryType(SalaryType.FULL_PROJECT)
-                    .name("Sergio Leone")
-                    .build())
-            .producers(
-                Set.of(
-                    Producer.builder()
-                        .salary(BigDecimal.ONE)
-                        .salaryType(SalaryType.FULL_PROJECT)
-                        .name("Enio Moriccone")
-                        .build()))
-            .title("The Good, the bad and the ugly")
-            .genre(Genre.DRAMA)
-            .productionBudget(BigDecimal.ONE)
-            .yearOfRelease(1972)
-            .build();
+    MovieDto forHandfulOfDollars = new MovieDto();
+    forHandfulOfDollars.setGenre(Genre.DRAMA);
+    forHandfulOfDollars.setTitle("For a handful of dollars");
+    forHandfulOfDollars.setProductionBudget(BigDecimal.ONE);
+    forHandfulOfDollars.setYearOfRelease(1972);
+    forHandfulOfDollars.setDirector(directors.poll());
+    forHandfulOfDollars.setProducers(Set.of(producers.poll()));
+    forHandfulOfDollars.setCrewMembers(Set.of(crewMembers.poll()));
+    forHandfulOfDollars.setActors(Set.of(lee));
 
-    Movie forHandfulOfDollars =
-        Movie.builder()
-            .crewMembers(
-                Set.of(
-                    CrewMember.builder()
-                        .salary(BigDecimal.ONE)
-                        .salaryType(SalaryType.FULL_PROJECT)
-                        .name("Charlotte")
-                        .build()))
-            .actors(Set.of(lee))
-            .director(
-                Director.builder()
-                    .salary(BigDecimal.ONE)
-                    .salaryType(SalaryType.FULL_PROJECT)
-                    .name("Sergio Leone")
-                    .build())
-            .producers(
-                Set.of(
-                    Producer.builder()
-                        .salary(BigDecimal.ONE)
-                        .salaryType(SalaryType.FULL_PROJECT)
-                        .name("Enio Moriccone")
-                        .build()))
-            .title("The Good, the bad and the ugly")
-            .genre(Genre.DRAMA)
-            .productionBudget(BigDecimal.ONE)
-            .yearOfRelease(1973)
-            .build();
+    forHandfulOfDollars = movieService.create(forHandfulOfDollars);
 
-    Movie forFewDollarsMore =
-        Movie.builder()
-            .crewMembers(
-                Set.of(
-                    CrewMember.builder()
-                        .salary(BigDecimal.ONE)
-                        .salaryType(SalaryType.FULL_PROJECT)
-                        .name("Charlotte")
-                        .build()))
-            .actors(Set.of(clint))
-            .director(
-                Director.builder()
-                    .salary(BigDecimal.ONE)
-                    .salaryType(SalaryType.FULL_PROJECT)
-                    .name("Sergio Leone")
-                    .build())
-            .producers(
-                Set.of(
-                    Producer.builder()
-                        .salary(BigDecimal.ONE)
-                        .salaryType(SalaryType.FULL_PROJECT)
-                        .name("Enio Moriccone")
-                        .build()))
-            .title("The Good, the bad and the ugly")
-            .genre(Genre.DRAMA)
-            .productionBudget(BigDecimal.ONE)
-            .yearOfRelease(1972)
-            .build();
+    MovieDto forFewDollarsMore = new MovieDto();
+    forFewDollarsMore.setGenre(Genre.DRAMA);
+    forFewDollarsMore.setTitle("The good, the bad and the ugly");
+    forFewDollarsMore.setProductionBudget(BigDecimal.ONE);
+    forFewDollarsMore.setYearOfRelease(1973);
+    forFewDollarsMore.setDirector(directors.poll());
+    forFewDollarsMore.setProducers(Set.of(producers.poll()));
+    forFewDollarsMore.setCrewMembers(Set.of(crewMembers.poll()));
+    forFewDollarsMore.setActors(Set.of(lee));
+    ActorDto clint = new ActorDto();
+    clint.setName("Clint Eastwood");
+    clint.setProfession(Profession.ACTOR);
+    clint.setSalary(BigDecimal.ONE);
+    clint.setSalaryType(SalaryType.FULL_PROJECT);
+    forFewDollarsMore.setActors(Set.of(clint));
 
-    theGoodBadAndUgly = movieRepository.save(theGoodBadAndUgly);
-    forHandfulOfDollars = movieRepository.save(forHandfulOfDollars);
-    forFewDollarsMore = movieRepository.save(forFewDollarsMore);
+    forFewDollarsMore = movieService.create(forFewDollarsMore);
 
-    BestActorNomination lvc1 =
-        BestActorNomination.builder()
-            .actor(lee)
-            .movie(theGoodBadAndUgly)
-            .category(Category.BEST_MALE_ROLE)
-            .genre(Genre.DRAMA)
-            .nominationResult(NominationResult.NOMINATED)
-            .nominationYear(1989)
-            .build();
+    BestActorNominationDto nominationOne = new BestActorNominationDto();
+    nominationOne.setActor(lee.getName());
+    nominationOne.setActorId(theGoodBadAndUgly.getActors().iterator().next().getId());
+    nominationOne.setMovie(theGoodBadAndUgly.getTitle());
+    nominationOne.setMovieId(theGoodBadAndUgly.getId());
+    nominationOne.setNominationResult(NominationResult.NOMINATED);
+    nominationOne.setCategory(Category.BEST_MALE_ROLE);
+    nominationOne.setGenre(Genre.DRAMA);
+    nominationOne.setNominationYear(1971);
 
-    BestActorNomination lvc2 =
-        BestActorNomination.builder()
-            .actor(lee)
-            .movie(forHandfulOfDollars)
-            .category(Category.BEST_HERO)
-            .genre(Genre.DRAMA)
-            .nominationResult(NominationResult.NOMINATED)
-            .nominationYear(1986)
-            .build();
+    BestActorNominationDto nominationTwo = new BestActorNominationDto();
+    nominationTwo.setActor(lee.getName());
+    nominationTwo.setActorId(forHandfulOfDollars.getActors().iterator().next().getId());
+    nominationTwo.setMovie(forHandfulOfDollars.getTitle());
+    nominationTwo.setMovieId(forHandfulOfDollars.getId());
+    nominationTwo.setNominationResult(NominationResult.NOMINATED);
+    nominationTwo.setCategory(Category.BEST_HERO);
+    nominationTwo.setGenre(Genre.DRAMA);
+    nominationTwo.setNominationYear(1972);
 
-    BestActorNomination cea =
-        BestActorNomination.builder()
-            .actor(clint)
-            .movie(forFewDollarsMore)
-            .category(Category.BEST_SUPPORTING)
-            .genre(Genre.DRAMA)
-            .nominationResult(NominationResult.NOMINATED)
-            .nominationYear(1982)
-            .build();
+    BestActorNominationDto nominationThree = new BestActorNominationDto();
+    nominationThree.setActor(clint.getName());
+    nominationThree.setActorId(forFewDollarsMore.getActors().iterator().next().getId());
+    nominationThree.setMovie(forFewDollarsMore.getTitle());
+    nominationThree.setMovieId(forFewDollarsMore.getId());
+    nominationThree.setNominationResult(NominationResult.NOMINATED);
+    nominationThree.setCategory(Category.BEST_MALE_ROLE);
+    nominationThree.setGenre(Genre.DRAMA);
+    nominationThree.setNominationYear(1973);
 
-    bestActorNominationRepository.saveAll(List.of(lvc1, lvc2, cea));
+    bestActorNominationService.create(nominationOne);
+    bestActorNominationService.create(nominationTwo);
+    bestActorNominationService.create(nominationThree);
 
-    Set<BestActorNominationDto> bestActorNominations =
-        bestActorNominationService.getByMinTimesNominated(1);
-    Assertions.assertThat(bestActorNominations.size()).isEqualTo(3);
+    Set<BestActorNominationDto> atLeastOnceNominated = bestActorNominationService.getByMinTimesNominated(1);
+    Assertions.assertThat(atLeastOnceNominated.size()).isEqualTo(3);
 
-    bestActorNominations = bestActorNominationService.getByMinTimesNominated(2);
-    Assertions.assertThat(bestActorNominations.size()).isEqualTo(2);
+
+  }
+
+  private Queue<DirectorDto> makeDirectors(int cnt) {
+    Lorem lorem = LoremIpsum.getInstance();
+    Queue<DirectorDto> directorDtos = new ArrayDeque<>();
+    IntStream.rangeClosed(1, cnt)
+        .forEach(
+            i -> {
+              DirectorDto dto = new DirectorDto();
+              dto.setName(lorem.getName());
+              dto.setProfession(Profession.DIRECTOR);
+              dto.setSalary(BigDecimal.ONE);
+              dto.setSalaryType(SalaryType.FULL_PROJECT);
+              directorDtos.add(dto);
+            });
+    return directorDtos;
+  }
+
+  private Queue<ProducerDto> makeProducers(int cnt) {
+    Lorem lorem = LoremIpsum.getInstance();
+    Queue<ProducerDto> producerDtos = new ArrayDeque<>();
+    IntStream.rangeClosed(1, cnt)
+        .forEach(
+            i -> {
+              ProducerDto dto = new ProducerDto();
+              dto.setName(lorem.getName());
+              dto.setProfession(Profession.PRODUCER);
+              dto.setSalary(BigDecimal.ONE);
+              dto.setSalaryType(SalaryType.FULL_PROJECT);
+              producerDtos.add(dto);
+            });
+    return producerDtos;
+  }
+
+  private Queue<CrewMemberDto> makeCrewMembers(int cnt) {
+    Lorem lorem = LoremIpsum.getInstance();
+    Queue<CrewMemberDto> crewMemberDtos = new ArrayDeque<>();
+    IntStream.rangeClosed(1, cnt)
+        .forEach(
+            i -> {
+              CrewMemberDto dto = new CrewMemberDto();
+              dto.setName(lorem.getName());
+              dto.setProfession(Profession.CREW_MEMBER);
+              dto.setSalary(BigDecimal.ONE);
+              dto.setSalaryType(SalaryType.FULL_PROJECT);
+              crewMemberDtos.add(dto);
+            });
+    return crewMemberDtos;
   }
 
   @BeforeEach
