@@ -29,4 +29,10 @@ public class People extends BaseEntity {
 
   @Column(nullable = false)
   private BigDecimal salary;
+
+  @OneToMany
+  private Set<Movie> movies;
+
+  @OneToMany
+  private Set<TvShow> tvShows;
 }
