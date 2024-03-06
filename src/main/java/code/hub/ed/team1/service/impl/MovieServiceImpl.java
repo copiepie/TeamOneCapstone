@@ -1,12 +1,14 @@
 package code.hub.ed.team1.service.impl;
 
+import code.hub.ed.team1.model.*;
 import code.hub.ed.team1.dto.MovieDto;
 import code.hub.ed.team1.exception.MovieNotFoundException;
 import code.hub.ed.team1.mapper.MovieMapper;
-import code.hub.ed.team1.model.*;
+import code.hub.ed.team1.model.Movie;
+import code.hub.ed.team1.model.People;
+import code.hub.ed.team1.model.SalaryType;
 import code.hub.ed.team1.repository.MovieRepository;
 import code.hub.ed.team1.repository.PeopleRepository;
-import code.hub.ed.team1.service.api.Calculatable;
 import code.hub.ed.team1.service.api.MovieService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
