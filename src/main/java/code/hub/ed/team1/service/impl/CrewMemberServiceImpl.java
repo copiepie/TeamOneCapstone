@@ -15,26 +15,26 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class CrewMemberServiceImpl implements CrewMemberService {
-
+  
   private CrewMemberRepository crewMemberRepository;
-
+  
   private CrewMemberMapper crewMemberMapper;
-
-
+  
+  
   @Override
   public CrewMemberDto create(CrewMemberDto crewMemberDto) {
     CrewMember crewMember = crewMemberMapper.crewMemberDtoToCrewMember(crewMemberDto);
     crewMemberRepository.save(crewMember);
     return crewMemberMapper.crewMemberToCrewMemberDto(crewMember);
   }
-
+  
   @Override
   public CrewMemberDto read(Long id) {
     Optional<CrewMember> optionalCrewMember = crewMemberRepository.findById(id);
     CrewMember crewMember = optionalCrewMember.orElseThrow(IllegalArgumentException::new);
     return crewMemberMapper.crewMemberToCrewMemberDto(crewMember);
   }
-
+  
   @Override
   public CrewMemberDto update(Long id, CrewMemberDto crewMemberDto) {
     Optional<CrewMember> optionalCrewMember = crewMemberRepository.findById(crewMemberDto.getId());
@@ -45,10 +45,10 @@ public class CrewMemberServiceImpl implements CrewMemberService {
     } else {
       // TODO Change to somehting like MovieNotFoundException
       throw new IllegalArgumentException("CrewMember not found");
-
+      
     }
   }
-
+  
   @Override
   public void delete(Long id) {
     crewMemberRepository.deleteById(id);
@@ -63,4 +63,3 @@ public class CrewMemberServiceImpl implements CrewMemberService {
     return crewMemberDtos;
   }
 }
-
